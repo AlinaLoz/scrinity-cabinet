@@ -1,0 +1,35 @@
+@import 'variables';
+@import 'typography.scss';
+
+@mixin btn() {
+  height: 55px;
+  border: 0;
+  text-transform: lowercase;
+  border-radius: $btnRadius;
+  padding: 0 6%;
+
+  @media (max-width: $iphone6s) {
+    height: 60px;
+  }
+
+  @media (max-width: $iphone6) {
+    height: 50px;
+  }
+
+  @media (max-width: $iphone5) {
+    height: 50px;
+  }
+}
+
+@mixin input() {
+  @include montserrat-regular();
+  height: 37px;
+  border: none;
+  border-bottom: 1px solid $athensGray;
+  font-size: 18px;
+  line-height: 28px;
+
+  &::placeholder {
+    color: $alto;
+  }
+}

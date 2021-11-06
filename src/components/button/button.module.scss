@@ -1,0 +1,51 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.blue {
+  background: $ming;
+  color: $white;
+  @include btn();
+  &:hover {
+    background: $casal;
+  }
+
+  &:disabled {
+    background: $botticelli;
+  }
+}
+
+.white {
+  @include btn();
+  background-color: $white;
+  color: $ming;
+  border: 1px solid $ming;
+
+  &:hover {
+    border: 1px solid $casal;
+    color: $casal;
+  }
+
+  &:disabled {
+    border: 1px solid $botticelli;
+    color: $botticelli;
+  }
+}
+
+.fluid {
+  width: 100%;
+}
+
+.text {
+  line-height: 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  @include montserrat-semibold();
+
+  @media (max-width: $iphone6s) {
+    font-size: 11px;
+  }
+  @media (max-width: $iphone5) {
+    font-size: 10px;
+  }
+}
