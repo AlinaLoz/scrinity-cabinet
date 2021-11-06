@@ -7,7 +7,7 @@ type TUseRequestNewCodeReturn = [
   boolean,
   string,
   Dispatch<SetStateAction<string>>,
-  (phone: string, cb: () => void) => Promise<void>,
+  (phone: string, cb: () => void) => void,
 ];
 export const useRequestNewCode = (): TUseRequestNewCodeReturn => {
   const [isLoading, setIsLoading] = useState(false);
