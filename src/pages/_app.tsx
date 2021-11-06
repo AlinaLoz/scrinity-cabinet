@@ -7,7 +7,7 @@ import { Modal } from '@components/modal';
 import { ModalContext } from '@contexts/modal.context';
 import { UserContext } from '@contexts/user.context';
 import { useMe } from '@hooks/use-me.hooks';
-import { useModal } from "@hooks/use-modal.hooks";
+import { useModal } from '@hooks/use-modal.hooks';
 import '../assets/main.scss';
 
 type TWrappedAppProps = AppInitialProps & AppContext;
