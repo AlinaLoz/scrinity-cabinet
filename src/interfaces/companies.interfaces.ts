@@ -1,5 +1,3 @@
-import { TFile } from '@hooks/use-upload-files';
-
 interface ICriterion {
   isGood: boolean;
   key: string;

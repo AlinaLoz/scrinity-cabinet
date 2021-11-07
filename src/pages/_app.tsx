@@ -6,13 +6,14 @@ import { Modal } from '@components/modal';
 import { ModalContext } from '@contexts/modal.context';
 import { UserContext } from '@contexts/user.context';
 import { useModal } from '@hooks/use-modal.hooks';
+import { ProtectedRoutes } from '@components/protected-route';
+
 import '../assets/main.scss';
 
 type TWrappedAppProps = AppInitialProps & AppContext;
 
 const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
   const [modalType, setModalType, data, setDataWrapper] = useModal();
-  // const [userId] = useMe();
 
   return (
     <>
@@ -23,10 +24,12 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
         data, setModalType, modalType, setData: setDataWrapper,
       }}
       >
-        <UserContext.Provider value={{ userId: 1 }}>
-          <Modal />
-          <Component {...pageProps} />
-        </UserContext.Provider>
+        <ProtectedRoutes>
+          <UserContext.Provider value={{ userId: 1 }}>
+            <Modal />
+            <Component {...pageProps} />
+          </UserContext.Provider>
+        </ProtectedRoutes>
       </ModalContext.Provider>
     </>
   );

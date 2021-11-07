@@ -7,7 +7,8 @@ export const convertMessage = (
   defaultMessage: TMessageMapValue,
 ): TMessageMapValue => MESSAGE_MAP[message] || defaultMessage;
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
+/* eslint-disable  @typescript-eslint/no-explicit-any  */
+/* eslint-disable  @typescript-eslint/explicit-module-boundary-types  */
 export const getFirstResponseError = (e: any, defaultMessage = MESSAGE_MAP.UNKNOWN_ERROR): TMessageMapValue => {
   if (e?.response?.data?.errors?.length) {
     return convertMessage(e.response.data.errors[0].message, defaultMessage);
