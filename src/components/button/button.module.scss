@@ -41,11 +41,4 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   @include montserrat-semibold();
-
-  @media (max-width: $iphone6s) {
-    font-size: 11px;
-  }
-  @media (max-width: $iphone5) {
-    font-size: 10px;
-  }
 }

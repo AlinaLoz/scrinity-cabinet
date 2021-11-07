@@ -13,7 +13,7 @@ type TUseModalReturn = [
 ];
 
 export const useModal = (): TUseModalReturn => {
-  const [modalType, setModalType] = useState(MODAL.NONE);
+  const [modalType, setModalType] = useState(MODAL.SIGN_IN);
   const [data, setData] = useState<TModalData<MODAL>>(null);
 
   const setDataWrapper = useCallback<TSetDataCb<MODAL>>((type, value) => {

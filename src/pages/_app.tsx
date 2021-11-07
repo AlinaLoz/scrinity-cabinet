@@ -1,12 +1,10 @@
 import React from 'react';
 import { AppContext, AppInitialProps } from 'next/app';
-import { appWithTranslation } from 'next-i18next';
 import Head from 'next/head';
 import { Modal } from '@components/modal';
 
 import { ModalContext } from '@contexts/modal.context';
 import { UserContext } from '@contexts/user.context';
-import { useMe } from '@hooks/use-me.hooks';
 import { useModal } from '@hooks/use-modal.hooks';
 import '../assets/main.scss';
 
@@ -28,12 +26,10 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
         <UserContext.Provider value={{ userId: 1 }}>
           <Modal />
           <Component {...pageProps} />
-          ADMINKA
         </UserContext.Provider>
       </ModalContext.Provider>
     </>
   );
 };
 
-// @ts-ignore
-export default appWithTranslation(WrappedApp);
+export default WrappedApp;

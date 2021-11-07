@@ -3,6 +3,8 @@ import cn from 'classnames';
 import styles from './simple.module.scss';
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  label?: string;
   placeholder?: string;
   className?: string;
   value: string;
@@ -10,15 +12,20 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: React.FC<IInputProps> = ({
-  placeholder,
+  placeholder, id, label,
   value, onChangeValue, className = '', ...props
 }) => (
-  <input
-    {...props}
-    placeholder={placeholder}
-    type="text"
-    className={cn(className, styles.input)}
-    value={value}
-    onChange={(e) => onChangeValue(e.target.value)}
-  />
+  <div>
+    <label htmlFor={id} className={styles.label}>{label}</label>
+    <input
+      {...props}
+      id={id}
+      maxLength={30}
+      placeholder={placeholder}
+      type="text"
+      className={cn(className, styles.input)}
+      value={value}
+      onChange={(e) => onChangeValue(e.target.value)}
+    />
+  </div>
 );
