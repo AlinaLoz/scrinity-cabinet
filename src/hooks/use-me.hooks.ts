@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getMeAPI } from '@api/user.service';
 import { signOutAPI } from '@api/auth.service';
 
-export const useMe = () => {
+export const useMe = (): [boolean] => {
   const [userId, setUserId] = useState<number | null>(null);
 
   useEffect(() => {
