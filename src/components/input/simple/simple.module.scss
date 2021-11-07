@@ -5,3 +5,7 @@
 .input {
   @include input();
 }
+
+.label {
+  @include label();
+}

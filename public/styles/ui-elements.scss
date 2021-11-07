@@ -8,28 +8,38 @@
   border-radius: $btnRadius;
   padding: 0 6%;
 
-  @media (max-width: $iphone6s) {
-    height: 60px;
+  &:hover {
+    cursor: pointer;
   }
-
-  @media (max-width: $iphone6) {
-    height: 50px;
-  }
-
-  @media (max-width: $iphone5) {
-    height: 50px;
+  &:focus {
+    box-shadow: 0 0 2px 2px #51a7e8;
   }
 }
 
 @mixin input() {
   @include montserrat-regular();
-  height: 37px;
-  border: none;
-  border-bottom: 1px solid $athensGray;
-  font-size: 18px;
+  height: 42px;
+  border: 1px solid $athensGray;
+  font-size: 14px;
   line-height: 28px;
+  width: 100%;
+  border-radius: 8px;
+  background: $blackSqueeze;
+  text-indent: 20px;
 
   &::placeholder {
-    color: $alto;
+    color: $paleSky;
   }
+
+  &:focus {
+    box-shadow: 0 0 2px 2px #51a7e8;
+  }
+}
+
+@mixin label() {
+  @include montserrat-medium();
+  color: $paleSky;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase
 }
