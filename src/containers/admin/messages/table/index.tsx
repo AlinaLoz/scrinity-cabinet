@@ -58,7 +58,7 @@ export const MessagesTable: React.FC<IMessagesTableProps> = ({ items }) => {
           <td>{row.user}</td>
           <td>{row.message}</td>
           <td>{row.criterians}</td>
-          <td className={styles.trashRaw}><TrashIcon onClick={() => alert('aqwety')} /></td>
+          <td className={styles.trashRaw}><TrashIcon /></td>
         </tr>
       ))}
     />

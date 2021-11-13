@@ -60,6 +60,9 @@
     color: $ming !important;
     box-shadow: none !important;
 
+    &:after {
+      display: inline-block !important;
+    }
     &:active {
       border: none !important;
     }

@@ -24,6 +24,7 @@
 
   @media (max-width: $sm) {
     min-height: 50px;
+    text-indent: 50px;
   }
 }
 
@@ -33,5 +34,6 @@
   left: 38px;
   @media (max-width: $sm) {
     top: 18px;
+    left: 18px;
   }
 }
