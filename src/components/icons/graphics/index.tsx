@@ -1,0 +1,12 @@
+/* eslint-disable */
+import React, { ButtonHTMLAttributes } from 'react';
+
+export interface IGraphicsIcon extends ButtonHTMLAttributes<SVGElement> {
+	className?: string;
+}
+
+export const GraphicsIcon: React.FC<IGraphicsIcon> = ({ className = '', ...props }) => (
+	<svg  className={className} {...props} width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M4 10.6333C3.83431 10.6333 3.7 10.499 3.7 10.3333V4C3.7 3.83431 3.83431 3.7 4 3.7H8.66667C8.83235 3.7 8.96667 3.83431 8.96667 4V10.3333C8.96667 10.499 8.83235 10.6333 8.66667 10.6333H4ZM4 17.3C3.83431 17.3 3.7 17.1657 3.7 17V14C3.7 13.8343 3.83431 13.7 4 13.7H8.66667C8.83235 13.7 8.96667 13.8343 8.96667 14V17C8.96667 17.1657 8.83235 17.3 8.66667 17.3H4ZM12.3333 17.3C12.1676 17.3 12.0333 17.1657 12.0333 17V10.6667C12.0333 10.501 12.1676 10.3667 12.3333 10.3667H17C17.1657 10.3667 17.3 10.501 17.3 10.6667V17C17.3 17.1657 17.1657 17.3 17 17.3H12.3333ZM12.0333 4C12.0333 3.83431 12.1676 3.7 12.3333 3.7H17C17.1657 3.7 17.3 3.83431 17.3 4V7C17.3 7.16569 17.1657 7.3 17 7.3H12.3333C12.1676 7.3 12.0333 7.16569 12.0333 7V4Z" stroke="#BDBDBD" strokeWidth="1.4"/>
+	</svg>
+);

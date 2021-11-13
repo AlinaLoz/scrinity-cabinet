@@ -1,0 +1,16 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.app {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.main {
+  background: $athens;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}

@@ -1,0 +1,38 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.checkbox {
+  position: relative;
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid $botticelli;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 16px;
+    width: 16px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  input:checked ~ div {
+    background-color: $botticelli;
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      left: 3px;
+      top: 0;
+      width: 6px;
+      height: 9px;
+      border: solid $white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+
+}
+
+

@@ -1,0 +1,37 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.checkboxRaw {
+  min-width: 64px;
+  width: 64px;
+  padding-left: 24px !important;
+
+  @media (max-width: $sm) {
+    padding-left: 15px !important;
+    min-width: 40px;
+    width: 40px;
+  }
+}
+
+.userRaw {
+  min-width: 170px;
+  width: 15%;
+}
+
+.messageRaw {
+  width: 40%;
+  min-width: 455px;
+  padding-right: 50px;
+}
+
+.optionsRow {
+  min-width: 340px;
+}
+
+.trashRaw {
+  min-width: 55px;
+  width: 55px;
+  &:hover {
+    cursor: pointer;
+  }
+}
