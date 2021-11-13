@@ -23,16 +23,6 @@ input:focus {
 
 button,
 a {
-  &:after {
-    position: absolute;
-    top: -3px;
-    bottom: -3px;
-    left: -3px;
-    right: -3px;
-    border-style: dashed;
-    border-radius: 8px;
-    z-index: 1;
-  }
 }
 button[tabindex="-1"] {
   outline: none;
@@ -62,4 +52,46 @@ div.ReactModal__Content {
   &:focus-visible {
     outline: none;
   }
+}
+
+.pro-item-content {
+  display: flex !important;
+  align-items: center;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.pro-inner-item {
+  padding: 18px 33px !important;
+}
+
+.pro-menu-item.active {
+  .pro-inner-item {
+    padding: 18px 30px !important;
+  }
+}
+
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-footer {
+  border-top: none !important;
+}
+
+.pro-sidebar .pro-menu {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+
+.page-link {
+  color: #707683 !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.page-item.active .page-link {
+  color: white !important;
+  background-color: #707683 !important;
+  border: 0;
 }

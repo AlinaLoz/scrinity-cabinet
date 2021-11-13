@@ -1,0 +1,78 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.sidebar {
+  & > div:first-child {
+    background-color: $tuna !important;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.header {
+  padding: 25px 24px;
+  border-bottom: none !important;
+
+  & > p {
+    font-size: 12px;
+    line-height: 12px;
+    color: $botticelli;
+    text-transform: uppercase;
+    @include montserrat-bold();
+    margin-bottom: 40px;
+  }
+}
+
+.profile {
+  display: flex;
+
+  img {
+    margin-right: 16px;
+    height: 46px;
+    width: 46px;
+  }
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include montserrat-medium();
+  text-transform: none;
+  color: $silver;
+
+  & > p:first-child {
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  & > p:nth-child(2) {
+    font-size: 11px;
+  }
+}
+
+.menuItem {
+
+  svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+  }
+}
+
+.menuItemText {
+  margin-bottom: 0;
+  @include montserrat-regular();
+  font-size: 16px;
+  line-height: 20px;
+  color: $white;
+  letter-spacing: 0.2px;
+}
+
+.active {
+  border-left: 3px solid $ming;
+  background: $paleSky;
+  background: rgba(112, 118, 131, 0.08);
+  //box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}

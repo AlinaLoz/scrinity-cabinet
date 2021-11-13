@@ -1,0 +1,37 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/variables.scss';
+@import 'public/styles/ui-elements.scss';
+
+.wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.search {
+  @include montserrat-medium();
+  font-size: 12px;
+  background: $white;
+  min-height: 60px;
+  border: none;
+  letter-spacing: 0.01em;
+  text-indent: 67px;
+  width: 100%;
+  line-height: 15px;
+
+  &::placeholder {
+    color: $botticelli;
+  }
+
+  @media (max-width: $sm) {
+    min-height: 50px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 23px;
+  left: 38px;
+  @media (max-width: $sm) {
+    top: 18px;
+  }
+}

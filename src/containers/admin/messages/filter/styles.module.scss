@@ -1,0 +1,67 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables.scss';
+
+.wrapper {
+  display: flex;
+
+  @media (max-width: $sm) {
+    margin-top: 18px;
+  }
+}
+
+.label {
+  color: $paleSky;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+}
+
+.toggle {
+  border: none;
+  color: $ming;
+  background: transparent;
+  padding: 0 0 0 3px !important;
+  font-size: 12px;
+  line-height: 18px;
+  position: relative;
+
+  &:hover {
+    background: transparent;
+    color: $ming;
+  }
+  &.show:after {
+    display: none;
+  }
+ }
+
+.dropdown {
+  display: flex;
+  align-items: baseline;
+  margin-left: 5px;
+
+  & > div {
+    @include montserrat-regular();
+    font-size: 12px;
+    padding: 0;
+    color: $paleSky;
+    a {
+      padding: 2px 5px;
+    }
+    a:active {
+      color: $paleSky;
+      background: none;
+    }
+  }
+
+  & > button {
+    background: none !important;
+    border: none !important;
+    color: $ming !important;
+    box-shadow: none !important;
+
+    &:active {
+      border: none !important;
+    }
+  }
+}

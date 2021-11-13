@@ -1,0 +1,24 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables.scss';
+
+.main {
+  margin: 38px;
+
+  @media (max-width: $sm) {
+    margin: 85px 20px 20px 15px;
+  }
+}
+
+.fullScreenSearch {
+  @media (max-width: $sm) {
+    display: none;
+  }
+}
+
+.mobileSearch {
+  display: none;
+  @media (max-width: $sm) {
+    display: block;
+  }
+}
