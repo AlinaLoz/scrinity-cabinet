@@ -1,5 +1,5 @@
 FROM node:lts as dependencies
-WORKDIR /my-project
+WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile
 
@@ -11,7 +11,7 @@ COPY --from=dependencies /app/node_modules ./node_modules
 RUN yarn build
 
 FROM node:lts as runner
-WORKDIR /my-project
+WORKDIR /app
 ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
  COPY --from=builder /app/next.config.js ./
