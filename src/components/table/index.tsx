@@ -1,6 +1,8 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
+import cn from 'classnames';
+
 import { BackIcon } from '@components/icons/back';
 import styles from './table.module.scss';
 
@@ -22,8 +24,8 @@ export const CustomTable: React.FC<ITableProps> = ({ pageCount, thead, tbody }) 
     </Table>
     <div className={styles.rawSeparator} />
     <ReactPaginate
-      previousLabel={<BackIcon />}
-      nextLabel={<BackIcon className={styles.nextBtn} />}
+      previousLabel={<BackIcon className={styles.arrow} />}
+      nextLabel={<BackIcon className={cn(styles.nextBtn, styles.arrow)} />}
       pageClassName="page-item"
       pageLinkClassName="page-link"
       previousClassName="page-item"
@@ -36,7 +38,7 @@ export const CustomTable: React.FC<ITableProps> = ({ pageCount, thead, tbody }) 
       pageCount={pageCount}
       marginPagesDisplayed={2}
       pageRangeDisplayed={1}
-      onPageChange={() => alert('qw')}
+      // onPageChange={() => {}}
       containerClassName="pagination"
       activeClassName="active"
     />

@@ -73,7 +73,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
       </SidebarContent>
       <SidebarFooter>
         <Menu>
-          <MenuItem className={styles.menuItem} onClick={() => alert('Выйти')}>
+          <MenuItem className={styles.menuItem}>
             <SignOutIcon />
             <p>Выйти</p>
           </MenuItem>
