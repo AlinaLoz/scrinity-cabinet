@@ -51,3 +51,9 @@
 .nextBtn {
   transform: rotate(180deg);
 }
+
+.arrow {
+  position: relative;
+  top: -1px;
+  color: $paleSky;
+}
