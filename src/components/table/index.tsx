@@ -7,13 +7,16 @@ import { BackIcon } from '@components/icons/back';
 import styles from './table.module.scss';
 
 interface ITableProps {
+  className?: string;
   pageCount: number;
   thead: React.ReactElement;
   tbody: React.ReactElement[];
 }
 
-export const CustomTable: React.FC<ITableProps> = ({ pageCount, thead, tbody }) => (
-  <div>
+export const CustomTable: React.FC<ITableProps> = ({
+  className = '', pageCount, thead, tbody,
+}) => (
+  <div className={className}>
     <Table responsive="sm" className={styles.table}>
       <thead>
         {thead}

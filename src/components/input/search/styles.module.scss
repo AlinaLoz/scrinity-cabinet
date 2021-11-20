@@ -8,19 +8,9 @@
 }
 
 .search {
-  @include montserrat-medium();
-  font-size: 12px;
-  background: $white;
-  min-height: 60px;
-  border: none;
-  letter-spacing: 0.01em;
+  @include white-input();
   text-indent: 67px;
-  width: 100%;
-  line-height: 15px;
-
-  &::placeholder {
-    color: $botticelli;
-  }
+  height: 60px;
 
   @media (max-width: $sm) {
     min-height: 50px;

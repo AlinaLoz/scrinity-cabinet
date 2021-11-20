@@ -10,7 +10,7 @@ import { GraphicsIcon } from '@components/icons/graphics';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { Link } from '@components/link';
-import { ROUTES } from '@constants/routes.contstants';
+import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import { SignOutIcon } from '@components/icons/sign-out';
 import styles from './sidebar.module.scss';
 
@@ -28,10 +28,9 @@ const MENU_ITEMS: {
   { key: ROUTES.GRAPHICS, name: 'Графики', icon: GraphicsIcon },
 ];
 
-const COMPANY = 'puma';
 const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) => {
   const router = useRouter();
-  // console.log(router.asPath);
+  const company = router?.query?.company as string || 'puma';
 
   return (
     <ProSidebar
@@ -63,7 +62,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
             >
               <item.icon />
               <p className={styles.menuItemText}>
-                <Link href={`/${COMPANY}/${item.key}`}>
+                <Link href={COMPANY_ROUTE(company, item.key)}>
                   {item.name}
                 </Link>
               </p>

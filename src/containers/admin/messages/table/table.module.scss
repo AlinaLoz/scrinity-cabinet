@@ -1,6 +1,21 @@
 @import 'public/styles/typography.scss';
 @import 'public/styles/ui-elements.scss';
 
+.wrapper {
+  display: flex;
+  @media (max-width: $sm) {
+    display: block;
+  }
+}
+
+.customTable {
+  width: auto;
+}
+
+.fullTable {
+  flex: 1;
+}
+
 .checkboxRaw {
   min-width: 64px;
   width: 64px;
@@ -11,21 +26,6 @@
     min-width: 40px;
     width: 40px;
   }
-}
-
-.userRaw {
-  min-width: 170px;
-  width: 15%;
-}
-
-.messageRaw {
-  width: 40%;
-  min-width: 455px;
-  padding-right: 50px;
-}
-
-.optionsRow {
-  min-width: 340px;
 }
 
 .trashRaw {
