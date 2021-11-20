@@ -1,0 +1,23 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.wrapper {
+  position: relative;
+  display: flex;
+  border-top: 1px solid $athensGray;
+  height: 60px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.input {
+  @include white-input();
+}
+
+.icon {
+  padding-right: 21px;
+  padding-left: 21px;
+  padding-top: 10px;
+  border-left: 1px solid $athensGray;
+}
