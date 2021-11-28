@@ -6,16 +6,16 @@ export const MESSAGE_MAP = {
   INVALID_IMAGES_FORMAT: 'INVALID_IMAGES_FORMAT',
 } as const;
 
-export enum MESSAGE_FILTER {
+export enum SENDER_FILTER {
   all= 'all',
   anonymously = 'anonymously',
   nonAnonymously = 'nonAnonymously',
 }
 
-export const FILTER_OPTIONS = [
-  { key: MESSAGE_FILTER.all, value: 'Все' },
-  { key: MESSAGE_FILTER.anonymously, value: 'Анонимно' },
-  { key: MESSAGE_FILTER.nonAnonymously, value: 'Неанонимно' },
+export const SENDER_FILTER_OPTIONS = [
+  { key: SENDER_FILTER.all, value: 'Все' },
+  { key: SENDER_FILTER.anonymously, value: 'Анонимно' },
+  { key: SENDER_FILTER.nonAnonymously, value: 'Неанонимно' },
 ];
 
 export const PAGE_SIZE = 20;

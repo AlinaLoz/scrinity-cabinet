@@ -6,6 +6,5 @@ export const SIGN_OUT_API = '/auth/sign-out';
 
 // export const SEND_FEEDBACK_API = '/feedback';
 // export const SEND_FEEDBACK_IMAGES_API = `${SEND_FEEDBACK_API}/images`;
-
-// TODO: rename /me
+export const CHATS_API = '/chats';
 export const ME_API = '/managers/me';

@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 
 import { SearchInput } from '@components/input/search';
 import Admin from '@layouts/admin';
-import { FILTER_OPTIONS, MESSAGE_FILTER } from '@constants/message.constants';
+import { SENDER_FILTER_OPTIONS } from '@constants/message.constants';
 import { MessagesTable } from './table';
 import { Filter } from './filter';
-import { MOCK } from './mock';
 import styles from './messages.module.scss';
+import { useFilter } from './hooks';
 
 export const AdminMessages: React.FC = () => {
+  const { sender, onChange } = useFilter();
   const [search, setSearch] = useState('');
-  const [filter, setFilter] = useState(MESSAGE_FILTER.all);
 
   return (
     <Admin>
@@ -29,11 +29,11 @@ export const AdminMessages: React.FC = () => {
         />
         <Filter
           label="Контакты:"
-          options={FILTER_OPTIONS}
-          value={filter}
-          onChange={setFilter}
+          options={SENDER_FILTER_OPTIONS}
+          value={sender}
+          onChange={(value) => onChange('sender', value)}
         />
-        <MessagesTable items={MOCK} />
+        <MessagesTable />
       </main>
     </Admin>
   );
