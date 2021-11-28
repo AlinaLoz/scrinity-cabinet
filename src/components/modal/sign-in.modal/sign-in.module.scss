@@ -43,3 +43,10 @@
 .password {
   margin-bottom: 20px;
 }
+
+.error {
+  @include montserrat-regular();
+  font-size: 12px;
+  margin-top: 24px;
+  color: $red;
+}

@@ -22,7 +22,6 @@ export const Input: React.FC<IInputProps> = ({
       id={id}
       maxLength={30}
       placeholder={placeholder}
-      type="text"
       className={cn(className, styles.input)}
       value={value}
       onChange={(e) => onChangeValue(e.target.value)}

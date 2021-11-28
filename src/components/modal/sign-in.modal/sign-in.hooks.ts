@@ -1,26 +1,51 @@
 import { getFirstResponseError } from '@helpers/message.helper';
 import {
-  Dispatch, SetStateAction, useCallback, useState,
+  useCallback, useState,
 } from 'react';
+import { mutate } from 'swr';
+
+import { signInAPI, signOutAPI } from '@api/auth.service';
+import { ME_API } from '@constants/api.constants';
 
 type TUseRequestNewCodeReturn = [
   boolean,
   string,
-  Dispatch<SetStateAction<string>>,
-  (phone: string, cb: () => void) => void,
+  () => void,
+  (data: { login: string, password: string }) => Promise<boolean>,
 ];
-export const useRequestNewCode = (): TUseRequestNewCodeReturn => {
+
+export const useSignIn = (): TUseRequestNewCodeReturn => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>('');
 
-  const cb = useCallback((phone: string, func: () => void) => {
+  const cb = useCallback(async (data: { login: string, password: string }) => {
     try {
       setIsLoading(true);
-      func();
+      await signInAPI(data);
+      return true;
     } catch (err) {
       setError(getFirstResponseError(err));
+      return false;
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
+
   }, []);
-  return [isLoading, error, setError, cb];
+
+  const resetError = useCallback(() => {
+    setError('');
+  }, []);
+
+  return [isLoading, error, resetError, cb];
+};
+
+export const useSignOut = (): [() => Promise<void>] => {
+  const cb = useCallback(async () => {
+    try {
+      await signOutAPI();
+    } finally {
+      mutate(ME_API);
+    }
+  }, []);
+  return [cb];
 };

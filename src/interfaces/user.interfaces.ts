@@ -1,6 +1,12 @@
 export interface IUser {
-  id: number;
-  phoneNumber: string;
+  id: number | null;
+  name: string;
+  surname: string;
+  email: string;
+  institutionId: number,
+  image: {
+    filename: string;
+  },
 }
 
 export interface IGetMeAPIResponse {

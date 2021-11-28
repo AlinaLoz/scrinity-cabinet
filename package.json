@@ -45,7 +45,8 @@
     "react-phone-number-input": "^3.1.35",
     "react-pro-sidebar": "^0.7.1",
     "reactstrap": "^9.0.0",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "swr": "^1.0.1"
   },
   "license": "MIT",
   "devDependencies": {

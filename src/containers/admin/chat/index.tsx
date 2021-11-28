@@ -1,12 +1,11 @@
 import React, {
-  useCallback, useContext, useEffect,
+  useCallback, useEffect,
 } from 'react';
 import { useRouter } from 'next/router';
 import { formatPhoneNumberIntl } from 'react-phone-number-input';
 import cn from 'classnames';
 import { format } from 'date-fns';
 
-import { UserContext } from '@contexts/user.context';
 import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import ChatWidget from '@components/chat-widget';
 import styles from './styles.module.scss';
@@ -23,7 +22,8 @@ const CustomTimeStampFragment = ({ date, isResponse }: { date: string, isRespons
 
 export const Chat: React.FC<IChatProps> = () => {
   const router = useRouter();
-  const { company } = useContext(UserContext);
+  const company = '123';
+  // const { company } = useContext(UserContext);
   // const prepareFeedbackId = feedbackId || router.query.feedbackId;
   const companyMessagesRoute = COMPANY_ROUTE(company, ROUTES.MESSAGES);
 

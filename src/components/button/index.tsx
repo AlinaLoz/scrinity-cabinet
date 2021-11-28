@@ -5,7 +5,8 @@ import styles from './button.module.scss';
 
 interface IButtonProps {
   isFluid?: boolean,
-  onClick?: () => void,
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  onClick?: (e?: any) => void,
   isLoading?: boolean,
   disabled?: boolean,
   className?: string,

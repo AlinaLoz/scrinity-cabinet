@@ -1,15 +1,14 @@
 import React from 'react';
 import { AppContext, AppInitialProps } from 'next/app';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import SSRProvider from 'react-bootstrap/SSRProvider';
-
+//
 import { Modal } from '@components/modal';
 import { ModalContext } from '@contexts/modal.context';
-import { UserContext } from '@contexts/user.context';
 import { useModal } from '@hooks/use-modal.hooks';
 import { initLoader } from '@components/page-loader';
 import { ProtectedRoutes } from '@components/protected-route';
+import { useMe } from '@hooks/use-me.hooks';
 import 'react-chat-widget/lib/styles.css';
 
 import '../assets/main.scss';
@@ -18,10 +17,10 @@ type TWrappedAppProps = AppInitialProps & AppContext;
 
 initLoader();
 
+// TODO посмтотреть в проекте пикселя, как работать с модалками
 const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
-  const router = useRouter();
   const [modalType, setModalType, data, setDataWrapper] = useModal();
-  const company = router?.query?.company as string || '';
+  useMe();
 
   return (
     <SSRProvider>
@@ -34,10 +33,8 @@ const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
       }}
       >
         <ProtectedRoutes>
-          <UserContext.Provider value={{ userId: 1, company }}>
-            <Modal />
-            <Component {...pageProps} />
-          </UserContext.Provider>
+          <Modal />
+          <Component {...pageProps} />
         </ProtectedRoutes>
       </ModalContext.Provider>
     </SSRProvider>

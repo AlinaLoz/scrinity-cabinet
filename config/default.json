@@ -1,5 +1,5 @@
 {
   "ENVIRONMENT": "",
-  "API_URL": "https://dev.lozita.click/api/v1/admin",
+  "API_URL": "https://cabinet.lozita.click/api/v1",
   "STATIC_FILES": "https://project-z-images.s3.eu-west-1.amazonaws.com"
 }

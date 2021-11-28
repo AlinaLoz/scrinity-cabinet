@@ -12,7 +12,7 @@ interface IPageLoaderProps {
 export const PageLoader: React.FC<IPageLoaderProps> = ({
   className = '',
 }) => (
-  <div className={cn(styles.wrapper, className)}>
+  <div className={cn(styles.pageLoader, className)}>
     <ReactLoading type="spinningBubbles" color="#2E5D6C" height="20%" width="20%" />
   </div>
 );

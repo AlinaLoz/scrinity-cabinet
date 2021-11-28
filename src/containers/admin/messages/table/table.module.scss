@@ -22,9 +22,14 @@
   padding-left: 24px !important;
 
   @media (max-width: $sm) {
-    padding-left: 15px !important;
-    min-width: 40px;
-    width: 40px;
+    //padding-left: 15px !important;
+    //min-width: 40px;
+    //width: 40px;
+
+    width: 0 !important;
+    padding: 0 !important;
+    min-width: 20px !important;
+    max-width: 0 !important;
   }
 }
 
