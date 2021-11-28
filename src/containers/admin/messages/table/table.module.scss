@@ -17,9 +17,14 @@
 }
 
 .checkboxRaw {
-  min-width: 64px;
-  width: 64px;
-  padding-left: 24px !important;
+  //min-width: 64px;
+  //width: 64px;
+  //padding-left: 24px !important;
+
+  width: 0 !important;
+  padding: 0 !important;
+  min-width: 20px !important;
+  max-width: 0 !important;
 
   @media (max-width: $sm) {
     //padding-left: 15px !important;
@@ -31,6 +36,14 @@
     min-width: 20px !important;
     max-width: 0 !important;
   }
+}
+
+.name {
+  width: 205px;
+}
+
+.message {
+  width: 350px;
 }
 
 .trashRaw {

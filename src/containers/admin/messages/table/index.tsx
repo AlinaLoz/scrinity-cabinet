@@ -5,16 +5,17 @@ import { CustomTable } from '@components/table';
 // import { Checkbox } from '@components/checkbox';
 // import { TrashIcon } from '@components/icons/trash';
 import { Chat } from '@containers/admin/chat';
+import { useChats } from '@containers/admin/messages/hooks';
+import { CHATS_LIMIT } from '@constants/chats.constants';
 import { useChat } from './hooks';
 import styles from './table.module.scss';
+import { CRITERIONS } from './text';
 
-interface IMessagesTableProps {
-  items: { id: number, message: string, user: string, criterians: string }[],
-}
+export const MessagesTable: React.FC = () => {
 
-export const MessagesTable: React.FC<IMessagesTableProps> = ({ items }) => {
   // const itemsIds = useMemo(() => items.map(({ id }) => id), [items]);
   // const [checkedCheckboxes, onChangeCheckbox, onSelectAllCheckboxes] = useCheckboxes(itemsIds);
+  const [total, items] = useChats();
   const [chat, setChat] = useChat();
 
   const onOpenChatWrapper = (id: number) => {
@@ -25,7 +26,8 @@ export const MessagesTable: React.FC<IMessagesTableProps> = ({ items }) => {
     <div className={styles.wrapper}>
       <CustomTable
         className={cn(styles.customTable, { [styles.fullTable]: chat === null })}
-        pageCount={10}
+        total={total}
+        pageSize={CHATS_LIMIT}
         thead={(
           <tr>
             <th className={styles.checkboxRaw}>
@@ -35,10 +37,10 @@ export const MessagesTable: React.FC<IMessagesTableProps> = ({ items }) => {
               {/*  onChange={onSelectAllCheckboxes} */}
               {/* /> */}
             </th>
-            <th>
+            <th className={styles.name}>
               Имя/телефон
             </th>
-            <th>Описание</th>
+            <th className={styles.message}>Описание</th>
             <th>Опции</th>
             <th> </th>
           </tr>
@@ -52,9 +54,9 @@ export const MessagesTable: React.FC<IMessagesTableProps> = ({ items }) => {
               {/*  onChange={() => onChangeCheckbox(row.id)} */}
               {/* /> */}
             </td>
-            <td onClick={() => onOpenChatWrapper(row.id)}>{row.user}</td>
+            <td onClick={() => onOpenChatWrapper(row.id)}>{row.phoneNumber || 'Аноним'}</td>
             <td onClick={() => onOpenChatWrapper(row.id)}>{row.message}</td>
-            <td onClick={() => onOpenChatWrapper(row.id)}>{row.criterians}</td>
+            <td onClick={() => onOpenChatWrapper(row.id)}>{row.criterion.map((item): string => CRITERIONS[item]).toString()}</td>
             {/* <td className={styles.trashRaw}><TrashIcon /></td> */}
           </tr>
         ))}

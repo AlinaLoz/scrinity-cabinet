@@ -37,7 +37,7 @@ type TUseChatReturn = [
   (feedbackId: number) => void,
 ];
 export const useChat = (): TUseChatReturn => {
-  const [user] = useMe();
+  const [, user] = useMe();
   const [chat, setChat] = useState<number | null>(null);
 
   const onOpenChat = useCallback((feedbackId: number) => {

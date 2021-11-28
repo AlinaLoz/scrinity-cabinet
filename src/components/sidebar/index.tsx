@@ -33,7 +33,7 @@ const MENU_ITEMS: {
 const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) => {
   const router = useRouter();
   const [signOut] = useSignOut();
-  const [user] = useMe();
+  const [, user] = useMe();
 
   if (!user) {
     return <div />;

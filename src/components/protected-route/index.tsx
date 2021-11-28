@@ -8,10 +8,10 @@ const isBrowser = () => typeof window !== 'undefined';
 
 export const ProtectedRoutes: React.FC = ({ children }) => {
   const router = useRouter();
-  const [user] = useMe();
+  const [isLoading, user] = useMe();
   const isAuthenticated = !!user?.id;
 
-  if (isBrowser()) {
+  if (isBrowser() && !isLoading) {
     if (!isAuthenticated && !router.pathname.includes(ROUTES.SIGN_IN)) {
       router.push(ROUTES.SIGN_IN, ROUTES.SIGN_IN);
       return (<>{children}</>);
