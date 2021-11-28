@@ -6,12 +6,14 @@ import {
 import { PROJECT_NAME } from '@constants/global.constants';
 import { UrlHelper } from '@helpers/url.helper';
 import { MessageIcon } from '@components/icons/message';
-import { GraphicsIcon } from '@components/icons/graphics';
+// import { GraphicsIcon } from '@components/icons/graphics';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import { Link } from '@components/link';
 import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import { SignOutIcon } from '@components/icons/sign-out';
+import { useSignOut } from '@components/modal/sign-in.modal/sign-in.hooks';
+import { useMe } from '@hooks/use-me.hooks';
 import styles from './sidebar.module.scss';
 
 interface ISidebarProps {
@@ -25,12 +27,17 @@ const MENU_ITEMS: {
   icon: React.FC,
 }[] = [
   { key: ROUTES.MESSAGES, name: 'Сообщения', icon: MessageIcon },
-  { key: ROUTES.GRAPHICS, name: 'Графики', icon: GraphicsIcon },
+  // { key: ROUTES.GRAPHICS, name: 'Графики', icon: GraphicsIcon },
 ];
 
 const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) => {
   const router = useRouter();
-  const company = router?.query?.company as string || 'puma';
+  const [signOut] = useSignOut();
+  const [user] = useMe();
+
+  if (!user) {
+    return <div />;
+  }
 
   return (
     <ProSidebar
@@ -43,10 +50,10 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
       <SidebarHeader className={styles.header}>
         <p>{PROJECT_NAME}</p>
         <div className={styles.profile}>
-          <img src={UrlHelper.getImageSrc('profile.png')} alt="profile" />
+          <img src={UrlHelper.getImageSrc(user.image.filename)} alt="profile" />
           <div className={styles.profileDetails}>
-            <p>Настя Босацкая</p>
-            <p>nastya_bos@mail.ru</p>
+            <p>{user.name} {user.surname}</p>
+            <p>{user.email}</p>
           </div>
         </div>
       </SidebarHeader>
@@ -62,7 +69,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
             >
               <item.icon />
               <p className={styles.menuItemText}>
-                <Link href={COMPANY_ROUTE(company, item.key)}>
+                <Link href={COMPANY_ROUTE(user.institutionId.toString(), item.key)}>
                   {item.name}
                 </Link>
               </p>
@@ -72,7 +79,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
       </SidebarContent>
       <SidebarFooter>
         <Menu>
-          <MenuItem className={styles.menuItem}>
+          <MenuItem onClick={signOut} className={styles.menuItem}>
             <SignOutIcon />
             <p>Выйти</p>
           </MenuItem>

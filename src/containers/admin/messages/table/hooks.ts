@@ -1,8 +1,8 @@
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { isMobile } from 'mobile-device-detect';
 import Router from 'next/router';
 import { COMPANY_CHAT_ROUTE } from '@constants/routes.contstants';
-import { UserContext } from '@contexts/user.context';
+import { useMe } from '@hooks/use-me.hooks';
 
 type TUseCheckboxesReturn = [
   number[],
@@ -37,12 +37,12 @@ type TUseChatReturn = [
   (feedbackId: number) => void,
 ];
 export const useChat = (): TUseChatReturn => {
-  const { company } = useContext(UserContext);
+  const [user] = useMe();
   const [chat, setChat] = useState<number | null>(null);
 
   const onOpenChat = useCallback((feedbackId: number) => {
-    if (isMobile) {
-      Router.push(COMPANY_CHAT_ROUTE(company, feedbackId));
+    if (isMobile && user) {
+      Router.push(COMPANY_CHAT_ROUTE(user.institutionId.toString(), feedbackId));
     } else {
       setChat((chatId) => {
         if (chatId === feedbackId) {
@@ -51,7 +51,7 @@ export const useChat = (): TUseChatReturn => {
         return feedbackId;
       });
     }
-  }, [company]);
+  }, [user]);
 
   return [chat, onOpenChat];
 };
