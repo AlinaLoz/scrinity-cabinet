@@ -5,6 +5,7 @@ import { IChat } from '@interfaces/chats.interfaces';
 import { useRouter } from 'next/router';
 import { CHATS_LIMIT } from '@constants/chats.constants';
 import { SENDER_FILTER } from '@constants/message.constants';
+import {useCallback} from "react";
 
 export const useFilter = () => {
   const router = useRouter();
@@ -42,24 +43,27 @@ export const useFilter = () => {
   };
 };
 
-type TUseChats = [number, IChat[]];
-export const useChats = (): TUseChats => {
+type TUseChats = [boolean, number, IChat[]];
+export const useChats = (passSkip?: number, passLimit?: number): TUseChats => {
   const { skip, limit, sender } = useFilter();
-
+  
   const { data, error } = useSWR(
-    [CHATS_API, skip, limit, sender],
+    [CHATS_API, passSkip || skip, passLimit || limit, sender],
     () => getChatsAPI({
-      skip,
-      limit,
+      skip: passSkip || skip,
+      limit: passLimit || limit,
       ...(sender !== SENDER_FILTER.all && {
         isAnonymously: sender === SENDER_FILTER.anonymously,
       }),
     }),
     { refreshWhenHidden: false },
   );
-
+  
+  const isLoading = !error && !data;
+  
   if (error || !data) {
-    return [0, []];
+    return [isLoading, 0, []];
   }
-  return [data.total, data.items];
+  
+  return [isLoading, data.total, data.items];
 };

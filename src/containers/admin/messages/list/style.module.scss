@@ -1,0 +1,48 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.scrollableDiv {
+  overflow: hidden;
+  height: calc(100vh - 99px);
+
+  & > div > div {
+    border-radius: 4px;
+  }
+
+  &:hover {
+    overflow: auto;
+  }
+}
+
+.chat {
+  background: $white;
+  height: 72px;
+  border-bottom: 1px solid $athensGray;
+  padding: 17px 13px 17px 24px;
+  @include montserrat-medium();
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.active {
+  border-left: 2px solid $ming;
+}
+
+.phoneNumber {
+  color: $codGray;
+  font-size: 15px;
+  line-height: 18px;
+  margin-bottom: 0;
+}
+
+.message {
+  color: $paleSky;
+  font-size: 13px;
+  line-height: 16px;
+  margin-bottom: 0;
+  height: 16px;
+  @include hidden-ellipsis();
+}

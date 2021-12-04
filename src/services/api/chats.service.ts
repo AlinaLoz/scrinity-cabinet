@@ -1,7 +1,11 @@
 import { get } from '@helpers/axios.helpers';
-import { CHATS_API } from '@constants/api.constants';
-import { GetChatsAPIResponse } from '@interfaces/chats.interfaces';
+import {CHAT_BY_ID_API, CHATS_API} from '@constants/api.constants';
+import {IGetChatByIdAPIResponse, IGetChatsAPIResponse} from '@interfaces/chats.interfaces';
 
-export function getChatsAPI(data: { skip: number, limit: number, isAnonymously?: boolean }): Promise<GetChatsAPIResponse> {
+export function getChatsAPI(data: { skip: number, limit: number, isAnonymously?: boolean }): Promise<IGetChatsAPIResponse> {
   return get(CHATS_API, data);
+}
+
+export function getChatByIdAPI(id: number): Promise<IGetChatByIdAPIResponse> {
+  return get(CHAT_BY_ID_API(id));
 }
