@@ -13,6 +13,7 @@ interface IChatWidgetProps {
   launcherCloseLabel: string;
   handleNewUserMessage: (text: string) => void;
   launcher: () => ReactElement;
+  handleTextInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 // @ts-ignore

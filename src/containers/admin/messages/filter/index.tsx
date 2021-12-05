@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
+import cn from 'classnames';
 import styles from './styles.module.scss';
 
 type TOptions<T> = {
@@ -9,16 +10,17 @@ type TOptions<T> = {
 
 interface IFilterProps<T> {
   label: string;
+  className?: string;
   onChange: (value: T) => void;
   options: TOptions<T>[],
   value: T;
 }
 
 export function Filter<T extends string>({
-  onChange, options, value, label,
+  onChange, options, value, label, className,
 }: IFilterProps<T>) {
   return (
-    <div className={styles.wrapper}>
+    <div className={cn(styles.wrapper, className)}>
       <p className={styles.label}>{label}</p>
       <Dropdown className={styles.dropdown}>
         <Dropdown.Toggle className={styles.toggle} id="dropdown-basic">

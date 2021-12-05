@@ -1,15 +1,13 @@
 @import 'public/styles/typography.scss';
 @import 'public/styles/ui-elements.scss';
 
-.wrapper {
-  display: flex;
-  @media (max-width: $sm) {
-    display: block;
-  }
-}
-
 .customTable {
   width: auto;
+  margin: 38px;
+  margin-top: 0;
+  @media (max-width: $sm) {
+    margin: 0;
+  }
 }
 
 .fullTable {
@@ -43,7 +41,12 @@
 }
 
 .message {
-  width: 350px;
+  @include hidden-ellipsis();
+  max-width: 350px;
+}
+
+.criterions {
+  min-width: 400px
 }
 
 .trashRaw {

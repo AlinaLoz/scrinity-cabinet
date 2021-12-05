@@ -58,3 +58,9 @@
   letter-spacing: 0.3px;
   text-transform: uppercase
 }
+
+@mixin hidden-ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

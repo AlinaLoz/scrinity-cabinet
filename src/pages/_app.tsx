@@ -9,7 +9,9 @@ import { useModal } from '@hooks/use-modal.hooks';
 import { initLoader } from '@components/page-loader';
 import { ProtectedRoutes } from '@components/protected-route';
 import { useMe } from '@hooks/use-me.hooks';
+
 import 'react-chat-widget/lib/styles.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import '../assets/main.scss';
 
