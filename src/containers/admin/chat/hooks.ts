@@ -2,7 +2,9 @@ import useSWR from 'swr';
 import { CHAT_BY_ID_API } from '@constants/api.constants';
 import { getChatByIdAPI, sendMessageAPI } from '@api/chats.service';
 import { IChatById, ISendMessageRequest } from '@interfaces/chats.interfaces';
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 import { useMe } from '@hooks/use-me.hooks';
 import { formatPhoneNumberIntl } from 'react-phone-number-input';
 import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
@@ -134,6 +136,8 @@ export const useSubmitChat = (newMessage: string): [(event: React.MouseEvent) =>
   const [,, messagesById] = useChat(chatId || 0);
   const [onSendToBack] = useSendMessageToBack();
 
+  const [isTodaySend, setIsTodaySend] = useState(false);
+
   const onClickWrapper = useCallback(async (event: React.MouseEvent) => {
     if (!manager?.institutionId) {
       return;
@@ -149,11 +153,12 @@ export const useSubmitChat = (newMessage: string): [(event: React.MouseEvent) =>
         return;
       }
       const today = startOfDay(new Date()).toISOString();
-      if (!messagesById[today]) {
+      if (!isTodaySend && !messagesById[today]) {
         await sendMessage({ createdAt: today, content: '' }, '', 'day');
       }
       await sendMessage({ createdAt: (new Date()).toISOString() }, 'Вы', 'userMessage');
       await onSendToBack({ chatId, message: newMessage.trim() });
+      setIsTodaySend(true);
     }
   }, [manager?.institutionId, newMessage, messagesById]);
 

@@ -1,7 +1,9 @@
 import cn from 'classnames';
-import ru, { format } from 'date-fns';
-import React from 'react';
 
+/* eslint-disable  import/no-duplicates  */
+import ru from 'date-fns/locale/ru';
+import { format } from 'date-fns';
+import React from 'react';
 import styles from './styles.module.scss';
 
 /* eslint-disable  @typescript-eslint/no-explicit-any  */
