@@ -4,22 +4,18 @@ import cn from 'classnames';
 import { CustomTable } from '@components/table';
 import { CHATS_LIMIT } from '@constants/chats.constants';
 import { useChats } from '@containers/admin/messages/hooks';
+import { useChatIdFromRoute } from '@containers/admin/messages/content/hooks';
+import { PageLoader } from '@components/page-loader';
 import styles from './table.module.scss';
 import { CRITERIONS } from './text';
-import {useChatIdFromRoute} from "@containers/admin/messages/content/hooks";
-import {PageLoader} from "@components/page-loader";
 
-interface IMessageTableProps {
-  // onOpenChat: (value: number) => void;
-}
-
-export const MessageTable: React.FC<IMessageTableProps> = () => {
+export const MessageTable: React.FC = () => {
   const [isLoading, total, items] = useChats();
   const [, onOpenChat] = useChatIdFromRoute();
   // const itemsIds = useMemo(() => items.map(({ id }) => id), [items]);
   // const [checkedCheckboxes, onChangeCheckbox, onSelectAllCheckboxes] = useCheckboxes(itemsIds);
-  
-  return isLoading ? <PageLoader/> : (
+
+  return isLoading ? <PageLoader /> : (
     <CustomTable
       className={cn(styles.customTable, styles.fullTable)}
       total={total}
@@ -37,7 +33,7 @@ export const MessageTable: React.FC<IMessageTableProps> = () => {
             Имя/телефон
           </th>
           <th className={styles.message}>Описание</th>
-          <th>Опции</th>
+          <th className={styles.criterions}>Опции</th>
           <th> </th>
         </tr>
       )}

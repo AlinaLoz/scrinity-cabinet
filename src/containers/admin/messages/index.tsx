@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { SearchInput } from '@components/input/search';
 import Admin from '@layouts/admin';
 import { SENDER_FILTER_OPTIONS } from '@constants/message.constants';
 import { Filter } from './filter';
@@ -10,23 +9,23 @@ import { MessagesContent } from './content';
 
 export const AdminMessages: React.FC = () => {
   const { sender, onChange } = useFilter();
-  const [search, setSearch] = useState('');
+  // const [search, setSearch] = useState('');
 
   return (
     <Admin>
-      {/*<SearchInput*/}
-      {/*  className={styles.fullScreenSearch}*/}
-      {/*  value={search}*/}
-      {/*  onChange={setSearch}*/}
-      {/*  placeholder="Найти контакт"*/}
-      {/*/>*/}
+      {/* <SearchInput */}
+      {/*  className={styles.fullScreenSearch} */}
+      {/*  value={search} */}
+      {/*  onChange={setSearch} */}
+      {/*  placeholder="Найти контакт" */}
+      {/* /> */}
       <main className={styles.main}>
-        {/*<SearchInput*/}
-        {/*  className={styles.mobileSearch}*/}
-        {/*  value={search}*/}
-        {/*  onChange={setSearch}*/}
-        {/*  placeholder="Найти контакт"*/}
-        {/*/>*/}
+        {/* <SearchInput */}
+        {/*  className={styles.mobileSearch} */}
+        {/*  value={search} */}
+        {/*  onChange={setSearch} */}
+        {/*  placeholder="Найти контакт" */}
+        {/* /> */}
         <Filter
           className={styles.filter}
           label="Контакты:"

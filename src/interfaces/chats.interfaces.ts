@@ -29,3 +29,8 @@ export interface IChatById {
 export interface IGetChatByIdAPIResponse {
   items: IChatById[];
 }
+
+export interface ISendMessageRequest {
+  chatId: number;
+  message: string;
+}

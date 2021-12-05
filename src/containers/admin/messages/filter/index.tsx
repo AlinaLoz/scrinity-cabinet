@@ -17,7 +17,7 @@ interface IFilterProps<T> {
 }
 
 export function Filter<T extends string>({
-  onChange, options, value, label, className
+  onChange, options, value, label, className,
 }: IFilterProps<T>) {
   return (
     <div className={cn(styles.wrapper, className)}>

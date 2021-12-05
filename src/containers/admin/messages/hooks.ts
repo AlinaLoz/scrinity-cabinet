@@ -1,16 +1,24 @@
 import useSWR from 'swr';
+import { useRouter } from 'next/router';
+
 import { CHATS_API } from '@constants/api.constants';
 import { getChatsAPI } from '@api/chats.service';
 import { IChat } from '@interfaces/chats.interfaces';
-import { useRouter } from 'next/router';
 import { CHATS_LIMIT } from '@constants/chats.constants';
 import { SENDER_FILTER } from '@constants/message.constants';
-import {useCallback} from "react";
 
-export const useFilter = () => {
+type TUseFilter = {
+  search: string,
+  sender: string,
+  skip: number,
+  limit: number,
+  onChange: (type: 'sender', value: string) => void,
+};
+
+export const useFilter = (): TUseFilter => {
   const router = useRouter();
 
-  const search = router.query?.search || '';
+  const search = router.query?.search as string || '';
   const sender = (router.query?.sender as string) || SENDER_FILTER.all;
   const skip = +(router.query.skip || 0);
   const limit = +(router.query.limit || CHATS_LIMIT);
@@ -46,7 +54,7 @@ export const useFilter = () => {
 type TUseChats = [boolean, number, IChat[]];
 export const useChats = (passSkip?: number, passLimit?: number): TUseChats => {
   const { skip, limit, sender } = useFilter();
-  
+
   const { data, error } = useSWR(
     [CHATS_API, passSkip || skip, passLimit || limit, sender],
     () => getChatsAPI({
@@ -58,12 +66,12 @@ export const useChats = (passSkip?: number, passLimit?: number): TUseChats => {
     }),
     { refreshWhenHidden: false },
   );
-  
+
   const isLoading = !error && !data;
-  
+
   if (error || !data) {
     return [isLoading, 0, []];
   }
-  
+
   return [isLoading, data.total, data.items];
 };

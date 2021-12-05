@@ -116,20 +116,21 @@
   align-content: flex-start;
   align-items: flex-end;
 
-  & > div:nth-child(odd) {
-    margin-top: 30px;
+  p {
+    margin-bottom: 0;
   }
-  & > div:nth-child(even) {
-    height: 0;
-    margin: 0 16px;
-  }
-  & > div:nth-last-child(-n+2) {
-    margin-bottom: 40px;
-  }
+
+  //& > div:nth-child(odd) { // нечетный
+  //  height: 0;
+  //  margin: 0 16px;
+  //}
+  //& > div:nth-child(even) { // четный
+  //  margin-top: 15px;
+  //  margin-bottom: 30px;
+  //}
 }
 .rcw-message {
-  margin-left: 16px;
-  margin-right: 16px;
+  margin: 0 16px;
   width: 100%;
 
   & > div {
@@ -152,12 +153,14 @@
   }
 
   .rcw-response {
+    margin-bottom: 30px;
     border-top-left-radius: 0;
     background: $ming;
     color: $white;
   }
 
   .rcw-client {
+    margin-bottom: 30px;
     border-bottom-right-radius: 0;
     background: $white;
     border: 1px solid $athensGray;
@@ -174,5 +177,17 @@
     font-size: 10px;
     letter-spacing: 0.1em;
     margin-top: 0;
+    margin-bottom: 0;
   }
+}
+
+.rcw-message-day {
+  @include montserrat-medium();
+  margin-bottom: 15px;
+  font-size: 13px;
+  line-height: 16px;
+  color: $paleSky;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
 }

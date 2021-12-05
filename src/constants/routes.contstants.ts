@@ -8,4 +8,4 @@ export enum ROUTES {
 }
 
 export const COMPANY_ROUTE = (company: string, route: ROUTES): string => `/${company}${route}`;
-export const COMPANY_CHAT_ROUTE = (company: string, feedbackId: number): string => `/${company}${ROUTES.CHAT}?id=${feedbackId}`;
+export const COMPANY_CHAT_ROUTE = (company: string): string => `/${company}${ROUTES.CHAT}`;

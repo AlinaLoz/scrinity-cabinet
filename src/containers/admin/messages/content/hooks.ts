@@ -40,16 +40,19 @@ type TUseOpenChatReturn = [
 export const useOpenChat = (): TUseOpenChatReturn => {
   const router = useRouter();
   const [, user] = useMe();
-  
+
   const onOpenChat = useCallback((chatId: number) => {
     if (isMobile && user) {
-      router.push(COMPANY_CHAT_ROUTE(user.institutionId.toString(), chatId));
+      router.push({
+        pathname: COMPANY_CHAT_ROUTE(user.institutionId.toString()),
+        query: { chatId },
+      });
     } else {
-      const queryChatId = +(router.query['chatId'] || 0);
+      const queryChatId = +(router.query.chatId || 0);
       if (queryChatId === chatId) {
-        delete router.query['chatId'];
+        delete router.query.chatId;
       } else {
-        router.query['chatId'] = chatId.toString();
+        router.query.chatId = chatId.toString();
       }
       router.push({
         pathname: router.pathname,
@@ -57,18 +60,15 @@ export const useOpenChat = (): TUseOpenChatReturn => {
       });
     }
   }, [user, router]);
-  
+
   return [onOpenChat];
 };
 
-
 export const useChatIdFromRoute = (): [number | null, (chatId: number) => void] => {
   const router = useRouter();
-  const chatId = router.query['chatId'] as string;
-  
-  const [onChangeChatId] = useOpenChat()
-  
+  const chatId = router.query.chatId as string;
+
+  const [onChangeChatId] = useOpenChat();
+
   return [isNumber(chatId) ? +chatId : null, onChangeChatId];
 };
-
-

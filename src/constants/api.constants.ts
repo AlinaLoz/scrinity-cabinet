@@ -7,5 +7,6 @@ export const SIGN_OUT_API = '/auth/sign-out';
 // export const SEND_FEEDBACK_API = '/feedback';
 // export const SEND_FEEDBACK_IMAGES_API = `${SEND_FEEDBACK_API}/images`;
 export const CHATS_API = '/chats';
-export const CHAT_BY_ID_API = (id: number) => `/chats/${id}`;
+export const CHATS_MESSAGE_API = '/chats/message';
+export const CHAT_BY_ID_API = (id: number): string => `/chats/${id}`;
 export const ME_API = '/managers/me';
