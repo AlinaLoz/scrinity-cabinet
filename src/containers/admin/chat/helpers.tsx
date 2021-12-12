@@ -23,7 +23,7 @@ export const CustomTimeStampFragment: React.FC<{
 }> = ({ date, isResponse, sender }) => (
   <div className={cn('rcw-timestamp', isResponse ? 'rcw-response' : 'rcw-client')}>
     <p>
-      <span className={styles.sender}>{sender}</span>
+      {/* <span className={styles.sender}>{sender}</span> */}
       <span className={styles.time}>{format(new Date(date), 'HH:mm')}</span>
     </p>
   </div>

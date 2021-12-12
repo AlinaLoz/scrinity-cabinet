@@ -6,8 +6,9 @@ import { CHATS_LIMIT } from '@constants/chats.constants';
 import { useChats } from '@containers/admin/messages/hooks';
 import { useChatIdFromRoute } from '@containers/admin/messages/content/hooks';
 import { PageLoader } from '@components/page-loader';
+import { Badge } from 'reactstrap';
 import styles from './table.module.scss';
-import { CRITERIONS } from './text';
+import { CRITERIONS } from '../../../../assets/criterions';
 
 export const MessageTable: React.FC = () => {
   const [isLoading, total, items] = useChats();
@@ -30,10 +31,10 @@ export const MessageTable: React.FC = () => {
             {/* /> */}
           </th>
           <th className={styles.name}>
-            Имя/телефон
+            Телефон
           </th>
-          <th className={styles.message}>Описание</th>
-          <th className={styles.criterions}>Опции</th>
+          <th className={styles.message}>Сообщение</th>
+          <th className={styles.criterions}>Криетерии</th>
           <th> </th>
         </tr>
       )}
@@ -48,7 +49,11 @@ export const MessageTable: React.FC = () => {
           </td>
           <td onClick={() => onOpenChat(row.id)}>{row.phoneNumber || 'Аноним'}</td>
           <td className={styles.message} onClick={() => onOpenChat(row.id)}>{row.message}</td>
-          <td onClick={() => onOpenChat(row.id)}>{row.criterion.map((item): string => CRITERIONS[item]).toString()}</td>
+          <td className={styles.criterionsBody} onClick={() => onOpenChat(row.id)}>
+            {row.criterion.map((criterion) => (
+              <Badge pill key={criterion} className={row.isGood ? 'bg-success' : 'bg-danger'}>{CRITERIONS[criterion]}</Badge>
+            ))}
+          </td>
           {/* <td className={styles.trashRaw}><TrashIcon /></td> */}
         </tr>
       ))}

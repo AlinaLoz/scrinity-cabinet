@@ -13,9 +13,17 @@
   border-radius: 4px;
 }
 
+.anonymous {
+  .rcw-messages-container {
+    height: calc(100vh - 148px);
+  }
+  .rcw-sender {
+    display: none;
+  }
+}
 .rcw-messages-container {
   max-height: none;
-  height: calc(100vh - 196px);;
+  height: calc(100vh - 195px);;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -119,15 +127,6 @@
   p {
     margin-bottom: 0;
   }
-
-  //& > div:nth-child(odd) { // нечетный
-  //  height: 0;
-  //  margin: 0 16px;
-  //}
-  //& > div:nth-child(even) { // четный
-  //  margin-top: 15px;
-  //  margin-bottom: 30px;
-  //}
 }
 .rcw-message {
   margin: 0 16px;

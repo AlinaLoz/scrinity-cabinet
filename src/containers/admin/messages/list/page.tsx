@@ -21,7 +21,7 @@ export const Page: React.FC<IPageProps> = ({ index }) => {
           key={item.id}
           onClick={() => onOpenChat(item.id)}
         >
-          <p className={styles.phoneNumber}>{item.id}{item.phoneNumber || 'Анонимно'}</p>
+          <p className={styles.phoneNumber}>{item.phoneNumber || 'Анонимно'}</p>
           <p className={styles.message}>{item.message}</p>
         </Touchable>
       ))}

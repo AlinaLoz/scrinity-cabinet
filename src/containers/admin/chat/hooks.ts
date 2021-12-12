@@ -45,7 +45,7 @@ export const useChat = (feedbackId: number): [boolean, IChatById[], TMessagesByD
   return [isLoading, data?.items, messagesByDay];
 };
 
-export const useToggleDisabledChat = (messages: IChatById[]): void => {
+export const useToggleDisabledChat = (messages: IChatById[]): boolean | null => {
   const isAnonymous = messages.length ? !messages[0]?.sender?.phoneNumber : null;
 
   useEffect(() => {
@@ -67,6 +67,8 @@ export const useToggleDisabledChat = (messages: IChatById[]): void => {
       })();
     };
   }, [messages, isAnonymous]);
+
+  return isAnonymous;
 };
 
 export const useChangeOpenedChat = (messages: IChatById[]): void => {
@@ -148,7 +150,8 @@ export const useSubmitChat = (newMessage: string): [(event: React.MouseEvent) =>
       return;
     }
     if (chatId && (event.target as HTMLButtonElement).classList.contains('rcw-send')) {
-      if (!newMessage?.trim().length) {
+      newMessage = newMessage?.trim();
+      if (!newMessage?.length || newMessage?.length > 300) {
         event.preventDefault();
         return;
       }

@@ -2,7 +2,7 @@ import React from 'react';
 import { AppContext, AppInitialProps } from 'next/app';
 import Head from 'next/head';
 import SSRProvider from 'react-bootstrap/SSRProvider';
-//
+
 import { Modal } from '@components/modal';
 import { ModalContext } from '@contexts/modal.context';
 import { useModal } from '@hooks/use-modal.hooks';
@@ -12,7 +12,6 @@ import { useMe } from '@hooks/use-me.hooks';
 
 import 'react-chat-widget/lib/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
-
 import '../assets/main.scss';
 
 type TWrappedAppProps = AppInitialProps & AppContext;

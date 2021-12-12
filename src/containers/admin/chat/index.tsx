@@ -18,14 +18,15 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
   const [isLoadingChat, messages] = useChat(chatId || 0);
   const [newUserMessage, setNewUserMessage] = useState('');
 
-  useToggleDisabledChat(messages);
+  const isAnonymous = useToggleDisabledChat(messages);
   useChangeOpenedChat(messages);
   const [formatSender] = useUpdateChatMessages();
   const [onSubmitChat] = useSubmitChat(newUserMessage);
 
+  console.log('formatSender', formatSender);
   return isLoadingChat ? <PageLoader /> : (
     <div
-      className={cn(styles.wrapper, className)}
+      className={cn(styles.wrapper, className, isAnonymous && 'anonymous')}
       onClick={(event) => onSubmitChat(event)}
     >
       <ChatWidget

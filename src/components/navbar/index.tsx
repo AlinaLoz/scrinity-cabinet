@@ -9,7 +9,6 @@ interface IAdminNavbarProps {
 const AdminNavbar: React.FC<IAdminNavbarProps> = ({ handleToggleSidebar }) => (
   <div className={styles.navbar}>
     <BurgerIcon className={styles.burger} onClick={() => handleToggleSidebar(true)} />
-
   </div>
 );
 

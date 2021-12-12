@@ -14,8 +14,8 @@ export enum SENDER_FILTER {
 
 export const SENDER_FILTER_OPTIONS = [
   { key: SENDER_FILTER.all, value: 'Все' },
-  { key: SENDER_FILTER.anonymously, value: 'Анонимно' },
-  { key: SENDER_FILTER.nonAnonymously, value: 'Неанонимно' },
+  { key: SENDER_FILTER.anonymously, value: 'Без номера' },
+  { key: SENDER_FILTER.nonAnonymously, value: 'С номером' },
 ];
 
 export const PAGE_SIZE = 20;
