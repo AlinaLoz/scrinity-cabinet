@@ -13,6 +13,7 @@ import { useMe } from '@hooks/use-me.hooks';
 import 'react-chat-widget/lib/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '../assets/main.scss';
+import { usePushNotifications } from '@hooks/use-push-notifications.hooks';
 
 type TWrappedAppProps = AppInitialProps & AppContext;
 
@@ -22,6 +23,7 @@ initLoader();
 const WrappedApp = ({ Component, pageProps }: TWrappedAppProps) => {
   const [modalType, setModalType, data, setDataWrapper] = useModal();
   useMe();
+  usePushNotifications();
 
   return (
     <SSRProvider>

@@ -7,4 +7,5 @@ declare module '@utils/config' {
 	export const ENVIRONMENT: ENVIRONMENT_TYPE;
 	export const API_URL: string;
 	export const STATIC_FILES: string;
+	export const PUBLIC_VAPID_KEY: string;
 }
