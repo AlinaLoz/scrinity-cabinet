@@ -8,3 +8,5 @@ export const CHATS_API = '/chats';
 export const CHATS_MESSAGE_API = '/chats/message';
 export const CHAT_BY_ID_API = (id: number): string => `/chats/${id}`;
 export const ME_API = '/managers/me';
+
+export const SUBSCRIPTION_API = '/subscriptions';
