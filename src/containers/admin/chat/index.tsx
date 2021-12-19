@@ -23,9 +23,12 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
   const [formatSender] = useUpdateChatMessages();
   const [onSubmitChat] = useSubmitChat(newUserMessage);
 
-  console.log('formatSender', formatSender);
   return isLoadingChat ? <PageLoader /> : (
     <div
+      role="button"
+      /* eslint-disable @typescript-eslint/no-empty-function */
+      onKeyPress={() => {}}
+      tabIndex={-1}
       className={cn(styles.wrapper, className, isAnonymous && 'anonymous')}
       onClick={(event) => onSubmitChat(event)}
     >
