@@ -19,8 +19,8 @@ export const getWidget = async (): Promise<typeof widget> => {
 };
 
 export const CustomTimeStampFragment: React.FC<{
-  date: string, isResponse: boolean, sender: string,
-}> = ({ date, isResponse, sender }) => (
+  date: string, isResponse: boolean,
+}> = ({ date, isResponse }) => (
   <div className={cn('rcw-timestamp', isResponse ? 'rcw-response' : 'rcw-client')}>
     <p>
       {/* <span className={styles.sender}>{sender}</span> */}

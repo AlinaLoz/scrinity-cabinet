@@ -149,7 +149,11 @@ export const useSubmitChat = (newMessage: string): [(event: React.MouseEvent) =>
       router.push(companyMessagesRoute);
       return;
     }
-    if (chatId && (event.target as HTMLButtonElement).classList.contains('rcw-send')) {
+
+    if (chatId
+      && ((event.target as HTMLButtonElement).classList.contains('rcw-send')
+      || (event.target as HTMLButtonElement).classList.contains('rcw-send-icon'))
+    ) {
       newMessage = newMessage?.trim();
       if (!newMessage?.length || newMessage?.length > 300) {
         event.preventDefault();
