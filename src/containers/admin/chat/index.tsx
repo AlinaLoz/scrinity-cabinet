@@ -1,46 +1,66 @@
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import { ChatProps } from 'scrinity-ui-lib';
 import cn from 'classnames';
+import { formatPhoneNumberIntl } from 'react-phone-number-input';
 
-import ChatWidget from '@components/chat-widget';
 import { PageLoader } from '@components/page-loader';
-import {
-  useChangeOpenedChat, useChat, useSubmitChat, useToggleDisabledChat, useUpdateChatMessages,
-} from './hooks';
+import { useMe } from '@hooks/use-me.hooks';
+
+import { sendFeedbackImagesAPI, sendMessageAPI } from '@api/chats.service';
+
+import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
+import { useRouter } from 'next/router';
 import { useChatIdFromRoute } from '../messages/content/hooks';
+import { useChat, useToggleDisabledChat } from './hooks';
 import styles from './styles.module.scss';
+
+// @ts-ignore
+const ChatWidget: (data: ChatProps) => JSX.Element = dynamic(
+  () => import('scrinity-ui-lib')
+    .then((mod) => mod.Chat), {
+    loading: () => <PageLoader />,
+    ssr: false,
+  },
+);
 
 interface IChatProps {
   className?: string;
 }
 
 export const Chat: React.FC<IChatProps> = ({ className }) => {
+  const router = useRouter();
   const [chatId] = useChatIdFromRoute();
-  const [isLoadingChat, messages] = useChat(chatId || 0);
-  const [newUserMessage, setNewUserMessage] = useState('');
+  const [, manager] = useMe();
 
+  const [isLoadingChat, messages, messagesById] = useChat(chatId || 0);
+  const formatSender = formatPhoneNumberIntl(messages[0]?.sender?.phoneNumber || '') || 'Аноним';
   const isAnonymous = useToggleDisabledChat(messages);
-  useChangeOpenedChat(messages);
-  const [formatSender] = useUpdateChatMessages();
-  const [onSubmitChat] = useSubmitChat(newUserMessage);
 
-  return isLoadingChat ? <PageLoader /> : (
+  const goBack = useCallback(() => {
+    if (!manager) { return; }
+    const companyMessagesRoute = COMPANY_ROUTE(manager.institutionId.toString(), ROUTES.MESSAGES);
+    router.push(companyMessagesRoute);
+  }, [manager]);
+
+  if (!manager?.id || isLoadingChat) {
+    return <PageLoader />;
+  }
+
+  return (
     <div
-      role="button"
-      /* eslint-disable @typescript-eslint/no-empty-function */
-      onKeyPress={() => {}}
-      tabIndex={-1}
       className={cn(styles.wrapper, className, isAnonymous && 'anonymous')}
-      onClick={(event) => onSubmitChat(event)}
     >
       <ChatWidget
-        /* eslint-disable @typescript-eslint/no-empty-function */
-        handleNewUserMessage={() => {}}
-        handleTextInputChange={(event) => setNewUserMessage(event.target.value)}
-        showTimeStamp={false}
-        showCloseButton
-        senderPlaceHolder="Напишите сообщение"
-        title={formatSender}
-        launcher={() => <div />}
+        userId={manager.userId}
+        chatId={chatId || undefined}
+        sendMessageAPI={sendMessageAPI}
+        uploadImagesAPI={sendFeedbackImagesAPI}
+        chatTitle={formatSender}
+        messagesById={messagesById}
+        institution={{ id: manager.institutionId }}
+        messages={messages}
+        goBack={goBack}
       />
     </div>
   );

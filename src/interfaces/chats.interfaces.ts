@@ -23,7 +23,8 @@ export interface IChatById {
   createdAt: string;
   files: {
     filename: string;
-  };
+    index: number;
+  }[];
 }
 
 export interface IGetChatByIdAPIResponse {
@@ -33,4 +34,10 @@ export interface IGetChatByIdAPIResponse {
 export interface ISendMessageRequest {
   chatId: number;
   message: string;
+  filesKeys: string[];
+}
+
+export type ISendFeedbackImagesRequest = FormData;
+export interface ISendFeedbackImagesResponse {
+  imagesKeys: string[];
 }
