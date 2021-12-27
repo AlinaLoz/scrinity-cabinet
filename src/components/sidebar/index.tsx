@@ -9,6 +9,8 @@ import { MessageIcon } from '@components/icons/message';
 // import { GraphicsIcon } from '@components/icons/graphics';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
+import config from '@utils/config';
+
 import { Link } from '@components/link';
 import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import { SignOutIcon } from '@components/icons/sign-out';
@@ -50,7 +52,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
       <SidebarHeader className={styles.header}>
         <p>{PROJECT_NAME}</p>
         <div className={styles.profile}>
-          <img src={UrlHelper.getImageSrc(user.image.filename)} alt="profile" />
+          <img src={UrlHelper.getImageSrc(user.image.filename, config.APP_STATIC_FILES)} alt="profile" />
           <div className={styles.profileDetails}>
             <p>{user.name} {user.surname}</p>
             <p>{user.email}</p>

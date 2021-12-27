@@ -1,6 +1,7 @@
 {
   "ENVIRONMENT": "",
   "API_URL": "https://cabinet.lozita.click/api/v1",
-  "STATIC_FILES": "https://project-z-images.s3.eu-west-1.amazonaws.com",
+  "APP_STATIC_FILES": "https://project-z-images.s3.eu-west-1.amazonaws.com",
+  "FEEDBACK_STATIC_FILES": "https://project-z-feedback.s3.eu-west-1.amazonaws.com",
   "PUBLIC_VAPID_KEY": "BNejeIQUnJmcU6vcFEypqasOTfk102bAoifvpPKVRvHi3IhG96z3tO1wxAHkcquTvirFBZgipE5nDGraPOvQdjA"
 }
