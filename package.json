@@ -12,12 +12,14 @@
     "prepare": "husky install",
     "type-check": "tsc --pretty"
   },
+  "peerDependencies": {
+    "react-chat-widget-lozyuk-custom": "^1.0.1"
+  },
   "dependencies": {
     "@types/aws-sdk": "^2.7.0",
     "@types/config": "^0.0.39",
     "@types/qs": "^6.9.7",
     "@types/react-burger-menu": "^2.8.2",
-    "@types/react-chat-widget": "^3.0.2",
     "@types/react-dom": "^17.0.11",
     "@types/react-modal": "^3.13.1",
     "@types/react-paginate": "^7.1.1",
@@ -35,7 +37,6 @@
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-burger-menu": "^3.0.6",
-    "react-chat-widget": "3.0.5-beta1",
     "react-countdown-hook": "^1.1.1",
     "react-dom": "^17.0.2",
     "react-image-file-resizer": "^0.4.7",
@@ -46,9 +47,11 @@
     "react-perfect-scrollbar": "^1.5.8",
     "react-phone-number-input": "^3.1.35",
     "react-pro-sidebar": "^0.7.1",
+    "react-simple-image-viewer": "^1.1.1",
     "react-toastify": "^8.1.0",
     "reactstrap": "^9.0.0",
     "sass": "^1.42.1",
+    "scrinity-ui-lib": "^0.0.1",
     "swr": "^1.0.1"
   },
   "license": "MIT",
