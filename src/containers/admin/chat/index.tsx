@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import dynamic from 'next/dynamic';
-import { ChatProps } from 'scrinity-ui-lib';
 import cn from 'classnames';
 import { formatPhoneNumberIntl } from 'react-phone-number-input';
 
@@ -16,13 +15,11 @@ import { useChat, useToggleDisabledChat } from './hooks';
 import styles from './styles.module.scss';
 
 // @ts-ignore
-const ChatWidget: (data: ChatProps) => JSX.Element = dynamic(
-  () => import('scrinity-ui-lib')
-    .then((mod) => mod.Chat), {
-    loading: () => <PageLoader />,
-    ssr: false,
-  },
-);
+const ChatWidget = dynamic(() => import('scrinity-chat')
+  .then((mod) => mod.CustomWidget), {
+  loading: () => <PageLoader />,
+  ssr: false,
+});
 
 interface IChatProps {
   className?: string;

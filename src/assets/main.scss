@@ -1,5 +1,18 @@
 @import "./base/fonts";
 @import "./base/base";
 @import "./base/normalize";
-@import "~scrinity-ui-lib/lib/styles.css";
+@import "~scrinity-chat/lib/styles.css";
 @import "~bootstrap/scss/bootstrap";
+
+.rcw-launcher {
+  display: none;
+}
+
+@media screen and (min-width: 800px) {
+  .rcw-widget-container {
+    height: 10px;
+    bottom: auto;
+    top: auto;
+    right: auto;
+  }
+}

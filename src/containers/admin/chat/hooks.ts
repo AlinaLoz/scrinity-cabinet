@@ -14,7 +14,7 @@ let widget: any = null;
 /* eslint-disable  @typescript-eslint/no-explicit-any  */
 export const getWidget = async (): Promise<typeof widget> => {
   if (!widget) {
-    widget = await import('react-chat-widget-lozyuk-custom');
+    widget = await import('scrinity-chat');
   }
   /* eslint-disable  @typescript-eslint/no-unsafe-return */
   return widget;

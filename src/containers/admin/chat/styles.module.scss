@@ -3,38 +3,10 @@
 @import 'public/styles/variables';
 
 .wrapper {
-  //max-height: calc(100vh - 360px);
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   border-radius: 4px;
   width: 70%;
   margin-left: 49px;
   background: $white;
-
-  & > div {
-    height: auto;
-  }
-
-  @media (max-width: $sm) {
-    width: 100%;
-    height: 100vh;
-    max-height: 100vh;
-    margin: 0;
-    border-radius: 0;
-  }
-}
-
-.sender {
-  @include montserrat-medium();
-  color: $codGray;
-  font-size: 11px;
-  line-height: 13px;
-  margin-right: 16px;
-}
-
-.time {
-  @include montserrat-regular();
-  color: $botticelli;
-  font-size: 10px;
-  line-height: 12px;
 }
