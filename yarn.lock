@@ -3699,10 +3699,10 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
-scrinity-chat@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/scrinity-chat/-/scrinity-chat-1.0.0.tgz#5a4024f0bc29483eaf2273cc4b80b796af2091be"
-  integrity sha512-0dFLuoRW7LWcSaWSsxyqoWE7KBj5oJddlfljPTpa2SRUv8vqVPtOfYxASVxa8Vu7Kl365ICSJ7kJiVCYVDN8Mw==
+scrinity-chat@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/scrinity-chat/-/scrinity-chat-1.0.1.tgz#1cb1062a4ef06280610f1c36d4fe165bc45dacde"
+  integrity sha512-uKtrgf73klZEH+47rPM4BA5PQmELVS/wrLsP70241h8qLVv94AcjhgRdGgsuf2aPS7m+9uVk8HNhY+5Vl/Mf5Q==
   dependencies:
     classnames "^2.2.6"
     date-fns "^2.27.0"
