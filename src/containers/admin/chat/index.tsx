@@ -32,7 +32,7 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
 
   const [isLoadingChat, messages, messagesById] = useChat(chatId || 0);
   const formatSender = formatPhoneNumberIntl(messages[0]?.sender?.phoneNumber || '') || 'Аноним';
-  const isAnonymous = useToggleDisabledChat(messages);
+  useToggleDisabledChat(messages);
 
   const goBack = useCallback(() => {
     if (!manager) { return; }
@@ -45,20 +45,16 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
   }
 
   return (
-    <div
-      className={cn(styles.wrapper, className, isAnonymous && 'anonymous')}
-    >
-      <ChatWidget
-        userId={manager.userId}
-        chatId={chatId || undefined}
-        sendMessageAPI={sendMessageAPI}
-        uploadImagesAPI={sendFeedbackImagesAPI}
-        chatTitle={formatSender}
-        messagesById={messagesById}
-        institution={{ id: manager.institutionId }}
-        messages={messages}
-        goBack={goBack}
-      />
-    </div>
+    <ChatWidget
+      userId={manager.userId}
+      chatId={chatId || undefined}
+      sendMessageAPI={sendMessageAPI}
+      uploadImagesAPI={sendFeedbackImagesAPI}
+      title={formatSender}
+      messagesById={messagesById}
+      institution={{ id: manager.institutionId }}
+      messages={messages}
+      goBack={goBack}
+    />
   );
 };

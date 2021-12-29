@@ -8,6 +8,7 @@
   display: flex;
   position: relative;
   height: 100vh;
+  background: $athens;
 
   @media (max-width: $sm) {
     height: auto;
