@@ -51,7 +51,12 @@ export const MessageTable: React.FC = () => {
           <td className={styles.message} onClick={() => onOpenChat(row.id)}>{row.message}</td>
           <td className={styles.criterionsBody} onClick={() => onOpenChat(row.id)}>
             {row.criterion.map((criterion) => (
-              <Badge pill key={criterion} className={row.isGood ? 'bg-success' : 'bg-danger'}>{CRITERIONS[criterion]}</Badge>
+              <Badge
+                pill
+                key={criterion}
+                className={cn(row.isGood ? 'bg-success' : 'bg-danger', styles.badge)}
+              >{CRITERIONS[criterion]}
+              </Badge>
             ))}
           </td>
           {/* <td className={styles.trashRaw}><TrashIcon /></td> */}
