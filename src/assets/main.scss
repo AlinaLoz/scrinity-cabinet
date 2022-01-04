@@ -3,31 +3,5 @@
 @import "./base/normalize";
 @import "~scrinity-chat/lib/styles.css";
 @import "~bootstrap/scss/bootstrap";
-
-.rcw-launcher {
-  display: none;
-}
-
-@media (max-width: 800px) {
-  .rcw-header {
-    margin-top: 80px;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  .wrapper {
-    background: transparent;
-  }
-
-  .rcw-messages-container {
-    height: calc(100vh - 194px) !important;
-  }
-
-  .rcw-widget-container {
-    height: 10px;
-    bottom: auto;
-    top: auto;
-    right: auto;
-    position: relative;
-  }
-}
+@import "./chat";
+@import "./charts";

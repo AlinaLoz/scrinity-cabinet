@@ -1,0 +1,44 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables.scss';
+
+.recharts-layer .recharts-cartesian-axis-tick {
+  text {
+    color: $baliHale;
+    @include montserrat-regular();
+    font-size: 12px;
+  }
+}
+
+.recharts-legend-wrapper {
+  width: 100% !important;
+  background: $white;
+  padding-bottom: 25px;
+  .recharts-surface {
+    width: 10px;
+  }
+}
+
+.recharts-responsive-container {
+  margin-top: 24px;
+  background: $white;
+}
+
+.recharts-tooltip-wrapper {
+  .recharts-tooltip-label {
+    display: none;
+  }
+
+  & > .recharts-default-tooltip {
+    border-radius: 8px;
+    background-color: $tuna !important;
+  }
+
+  .recharts-tooltip-item-list {
+    li {
+      font-size: 14px !important;
+      @include montserrat-regular();
+    }
+
+  }
+}

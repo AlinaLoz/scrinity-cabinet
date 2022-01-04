@@ -25,7 +25,7 @@ const executeSendRequest = (method: 'post' | 'patch' | 'put') => <T>(
 
 const executeGetRequest = (method: 'get' | 'delete') => <T>(
   urlPath: string,
-  query?: Record<string, unknown> | null,
+  query?: Record<string, any> | null,
   headers?: any,
 ) => {
   let url = `${API_URL}${urlPath}`;

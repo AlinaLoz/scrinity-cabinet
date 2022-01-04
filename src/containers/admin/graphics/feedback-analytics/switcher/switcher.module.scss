@@ -1,0 +1,25 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.switcher {
+  width: auto;
+  display: flex;
+  margin: 7px 33px;
+  border-bottom: 1px solid #EBEFF2;
+
+  p {
+    margin-right: 32px;
+    margin-bottom: 7px;
+    color: $paleSky;
+    font-size: 12px;
+    @include montserrat-regular();
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.active {
+      color: $ming;
+    }
+  }
+}

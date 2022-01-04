@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import dynamic from 'next/dynamic';
-import cn from 'classnames';
 import { formatPhoneNumberIntl } from 'react-phone-number-input';
 
 import { PageLoader } from '@components/page-loader';
@@ -12,7 +11,6 @@ import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import { useRouter } from 'next/router';
 import { useChatIdFromRoute } from '../messages/content/hooks';
 import { useChat, useToggleDisabledChat } from './hooks';
-import styles from './styles.module.scss';
 
 // @ts-ignore
 const ChatWidget = dynamic(() => import('scrinity-chat')

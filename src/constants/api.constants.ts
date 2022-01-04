@@ -11,3 +11,6 @@ export const SEND_CHATS_IMAGES_API = `${CHATS_API}/images`;
 export const ME_API = '/managers/me';
 
 export const SUBSCRIPTION_API = '/subscriptions';
+
+export const ANALYTICS_API = '/analytics';
+export const ANALYTICS_FEEDBACK_API = `${ANALYTICS_API}/feedback`;
