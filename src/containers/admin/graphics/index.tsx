@@ -1,11 +1,13 @@
 import React from 'react';
-// import styles from './graphics.module.scss';
+
 import Admin from '../../../layouts/admin';
+import { FeedbackAnalytics } from './feedback-analytics';
+import styles from './graphics.module.scss';
 
 export const AdminGraphics: React.FC = () => (
   <Admin>
-    <main>
-      AdminGraphics
+    <main className={styles.main}>
+      <FeedbackAnalytics />
     </main>
   </Admin>
 );

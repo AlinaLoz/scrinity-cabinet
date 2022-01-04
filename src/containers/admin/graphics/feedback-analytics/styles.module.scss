@@ -1,0 +1,17 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables.scss';
+
+.feedbackAnalytics {
+  height: 58%;
+  background: $white;
+  border-radius: 4px;
+}
+
+.title {
+  padding: 17px 24px;
+  color: $codGray;
+  @include montserrat-bold();
+  font-size: 20px;
+  margin-bottom: 0;
+}

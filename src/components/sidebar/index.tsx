@@ -6,7 +6,7 @@ import {
 import { PROJECT_NAME } from '@constants/global.constants';
 import { UrlHelper } from '@helpers/url.helper';
 import { MessageIcon } from '@components/icons/message';
-// import { GraphicsIcon } from '@components/icons/graphics';
+import { GraphicsIcon } from '@components/icons/graphics';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import config from '@utils/config';
@@ -29,7 +29,7 @@ const MENU_ITEMS: {
   icon: React.FC,
 }[] = [
   { key: ROUTES.MESSAGES, name: 'Сообщения', icon: MessageIcon },
-  // { key: ROUTES.GRAPHICS, name: 'Графики', icon: GraphicsIcon },
+  { key: ROUTES.GRAPHICS, name: 'Графики', icon: GraphicsIcon },
 ];
 
 const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) => {

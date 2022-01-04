@@ -1,2 +1,14 @@
 @import 'public/styles/typography.scss';
 @import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.main {
+  width: calc(100% - 76px);
+  height: 100%;
+  margin: 64px 38px;
+
+  @media (max-width: $md) {
+    width: calc(100% - 20px);
+    margin: 64px 10px;
+  }
+}
