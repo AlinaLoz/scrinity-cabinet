@@ -6,7 +6,7 @@ import styles from './switcher.module.scss';
 
 interface IProps {
   step: ANALYTIC_STEP;
-  onChange: (props: { newStep: ANALYTIC_STEP }) => void;
+  onChange: (newStep: ANALYTIC_STEP) => void;
 }
 
 export const Switcher: React.FC<IProps> = ({ onChange, step }) => (
@@ -18,7 +18,7 @@ export const Switcher: React.FC<IProps> = ({ onChange, step }) => (
     ].map((item) => (
       <p
         key={item.key}
-        onClick={() => onChange({ newStep: item.key })}
+        onClick={() => onChange(item.key)}
         className={cn({ [styles.active]: step === item.key })}
       >{item.value}
       </p>

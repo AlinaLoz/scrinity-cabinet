@@ -1,8 +1,12 @@
 import useSWR from 'swr';
 
-import { ANALYTICS_FEEDBACK_API } from '@constants/api.constants';
-import { getFeedbackAnalytics } from '@api/analytics.service';
-import { IGetFeedbackAnalyticsProps, IGetFeedbackAnalyticsResponse } from '@interfaces/analytics.interfaces';
+import { ANALYTICS_CRITERIONS_API, ANALYTICS_FEEDBACK_API } from '@constants/api.constants';
+import { getCriterionsAnalytics, getFeedbackAnalytics } from '@api/analytics.service';
+import {
+  IGetCriterionsAnalyticsResponse,
+  IGetFeedbackAnalyticsProps,
+  IGetFeedbackAnalyticsResponse,
+} from '@interfaces/analytics.interfaces';
 import { useMemo } from 'react';
 
 type TUseFeedbackAnalytics = [boolean, IGetFeedbackAnalyticsResponse[]];
@@ -31,4 +35,15 @@ export const prepareChartsData = (analytics: IGetFeedbackAnalyticsResponse[]): [
   }, [analytics, idxGood]);
 
   return [preparedGoodLineData];
+};
+
+type TUseCriterionsAnalytics = [boolean, IGetCriterionsAnalyticsResponse[]];
+export const useCriterionsAnalytics = (props: IGetFeedbackAnalyticsProps): TUseCriterionsAnalytics => {
+  const { data = [], error } = useSWR(
+    [ANALYTICS_CRITERIONS_API, props],
+    () => getCriterionsAnalytics(props),
+  );
+  const isLoading = !error && !data;
+  // @ts-ignore
+  return [isLoading, data];
 };
