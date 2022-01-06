@@ -9,7 +9,7 @@
   margin-bottom: 64px;
   max-height: 340px;
 
-  @media (max-width: $iphone6) {
+  @media (max-width: $md) {
     flex-direction: column;
     max-height: none;
     margin-bottom: 0;
@@ -27,7 +27,7 @@
     margin-bottom: 17px;
     @include montserrat-medium();
 
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       display: none;
     }
   }
@@ -40,7 +40,7 @@
     background: $white;
     padding-top: 10px;
     z-index: 20;
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       display: block;
     }
   }
@@ -77,7 +77,7 @@
     font-size: 16px;
     line-height: 22px;
     @include montserrat-regular();
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       font-size: 22px;
     }
   }
@@ -86,7 +86,7 @@
     font-size: 24px;
     line-height: 34px;
     @include montserrat-bold();
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       font-size: 30px;
 
     }

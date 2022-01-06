@@ -9,9 +9,6 @@
 
   @media (max-width: $md) {
     width: calc(100% - 20px);
-    margin: 64px 10px;
-  }
-  @media (max-width: $iphone6) {
     margin: 64px 10px 0 10px;
   }
 }

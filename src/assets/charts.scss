@@ -25,7 +25,7 @@
   .recharts-responsive-container {
     margin-top: 24px;
     background: $white;
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       max-height: none;
       height: 250px !important;
     }
@@ -37,12 +37,12 @@
     .recharts-surface {
       width: 10px;
     }
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       bottom: -44px !important;
     }
   }
   .recharts-wrapper {
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       max-height: 200px;
     }
   }
@@ -91,7 +91,7 @@
       margin-left: 0 !important;
     }
 
-    @media (max-width: $iphone6) {
+    @media (max-width: $md) {
       left: 0 !important;
       right: 0 !important;
       text-align: center;
