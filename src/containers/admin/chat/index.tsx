@@ -44,6 +44,7 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
 
   return (
     <ChatWidget
+      className={className}
       userId={manager.userId}
       chatId={chatId || undefined}
       sendMessageAPI={sendMessageAPI}

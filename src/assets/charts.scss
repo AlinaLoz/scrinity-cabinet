@@ -2,28 +2,6 @@
 @import 'public/styles/ui-elements.scss';
 @import 'public/styles/variables.scss';
 
-.recharts-layer .recharts-cartesian-axis-tick {
-  text {
-    color: $baliHale;
-    @include montserrat-regular();
-    font-size: 12px;
-  }
-}
-
-.recharts-legend-wrapper {
-  width: 100% !important;
-  background: $white;
-  padding-bottom: 25px;
-  .recharts-surface {
-    width: 10px;
-  }
-}
-
-.recharts-responsive-container {
-  margin-top: 24px;
-  background: $white;
-}
-
 .recharts-tooltip-wrapper {
   .recharts-tooltip-label {
     display: none;
@@ -42,3 +20,90 @@
 
   }
 }
+
+.feedback-analytics {
+  .recharts-responsive-container {
+    margin-top: 24px;
+    background: $white;
+    @media (max-width: $iphone6) {
+      max-height: none;
+      height: 250px !important;
+    }
+  }
+  .recharts-legend-wrapper {
+    width: 100% !important;
+    background: $white;
+    padding-bottom: 25px;
+    .recharts-surface {
+      width: 10px;
+    }
+    @media (max-width: $iphone6) {
+      bottom: -44px !important;
+    }
+  }
+  .recharts-wrapper {
+    @media (max-width: $iphone6) {
+      max-height: 200px;
+    }
+  }
+
+  .recharts-layer .recharts-cartesian-axis-tick {
+    text {
+      color: $baliHale;
+      @include montserrat-regular();
+      font-size: 12px;
+    }
+  }
+}
+
+.piecharts {
+  // pie charts
+  .recharts-wrapper {
+    width: calc(50% - 19px) !important;
+    display: flex;
+    margin-right: 38px;
+    background: $white;
+    box-shadow: 0px 6px 18px 0px #0000000f;
+    border-radius: 4px;
+
+    @media (max-width: $iphone6) {
+      width: 100% !important;
+      margin-bottom: 18px;
+      align-items: center;
+    }
+  }
+
+  .recharts-default-legend {
+    li {
+      display: flex !important;
+    }
+  }
+
+  .recharts-legend-wrapper {
+    width: auto !important;
+    background: transparent !important;
+    left: auto !important;
+    right: 100px;
+    top: 65px !important;
+    min-width: 0;
+
+    ul {
+      margin-left: 0 !important;
+    }
+
+    @media (max-width: $iphone6) {
+      left: 0 !important;
+      right: 0 !important;
+      text-align: center;
+      top: auto !important;
+      bottom: 20px !important;
+      span {
+        text-align: left;
+      }
+    }
+    @media (max-width: 1600px) {
+      right: 40px;
+    }
+  }
+}
+

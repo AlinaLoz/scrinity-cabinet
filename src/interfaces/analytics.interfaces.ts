@@ -11,6 +11,11 @@ export interface IGetFeedbackAnalyticsProps {
   step: ANALYTIC_STEP;
 }
 
+export interface IGetCriterionsAnalyticsProps {
+  fromDate: string;
+  toDate: string;
+}
+
 interface IFeedbackAnalyticsData {
   date: string;
   value: number;
@@ -19,4 +24,14 @@ interface IFeedbackAnalyticsData {
 export interface IGetFeedbackAnalyticsResponse {
   isGood: boolean;
   data: IFeedbackAnalyticsData[];
+}
+
+interface ICriterionsAnalyticsData {
+  criterionKey: string;
+  value: number;
+}
+
+export interface IGetCriterionsAnalyticsResponse {
+  isGood: boolean;
+  data: ICriterionsAnalyticsData[];
 }

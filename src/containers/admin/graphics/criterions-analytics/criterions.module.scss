@@ -1,0 +1,94 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.criterionsWrapper {
+  width: auto;
+  display: flex;
+  margin-top: 28px;
+  margin-bottom: 64px;
+  max-height: 340px;
+
+  @media (max-width: $iphone6) {
+    flex-direction: column;
+    max-height: none;
+    margin-bottom: 0;
+  }
+}
+
+.pie {
+  background: $white;
+}
+
+.legend {
+  &Title {
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 17px;
+    @include montserrat-medium();
+
+    @media (max-width: $iphone6) {
+      display: none;
+    }
+  }
+
+  &TitleBig {
+    font-size: 20px;
+    line-height: 30px;
+    display: none;
+    text-align: center;
+    background: $white;
+    padding-top: 10px;
+    z-index: 20;
+    @media (max-width: $iphone6) {
+      display: block;
+    }
+  }
+
+  &label {
+    & span:first-child {
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      margin-right: 14px;
+    }
+
+    & span:nth-child(2) {
+      color: $paleSky;
+      font-size: 13px;
+      line-height: 16px;
+      min-width: 200px;
+      max-width: 200px;
+      display: inline-block;
+      @include montserrat-regular();
+    }
+
+    & span:nth-child(3) {
+      color: $codGray;
+      font-size: 13px;
+      line-height: 16px;
+      @include montserrat-bold();
+    }
+  }
+
+  &CenterLabel {
+    color: $mistBlue;
+    font-size: 16px;
+    line-height: 22px;
+    @include montserrat-regular();
+    @media (max-width: $iphone6) {
+      font-size: 22px;
+    }
+  }
+  &CenterLabelBold {
+    color: #000000;
+    font-size: 24px;
+    line-height: 34px;
+    @include montserrat-bold();
+    @media (max-width: $iphone6) {
+      font-size: 30px;
+
+    }
+  }
+}
