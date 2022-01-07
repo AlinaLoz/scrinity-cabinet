@@ -7,7 +7,7 @@
   width: 100%;
   background: $tuna;
   position: fixed;
-  z-index: 10;
+  z-index: 100;
 
   @media (max-width: $sm) {
     display: flex;

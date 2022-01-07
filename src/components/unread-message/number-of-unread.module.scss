@@ -1,0 +1,17 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+
+.numberOfUnread {
+  position: absolute;
+  top: 15%;
+  right: 5%;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  background: #C4C9CC;
+  border-radius: 0.75rem;
+  color: #fff;
+  line-height: 1.5625rem;
+  text-align: center;
+  flex-shrink: 0;
+  @include montserrat-regular();
+}

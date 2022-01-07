@@ -20,6 +20,7 @@
   height: 72px;
   border-bottom: 1px solid $athensGray;
   padding: 17px 13px 17px 24px;
+  position: relative;
   @include montserrat-medium();
   &:hover {
     cursor: pointer;
