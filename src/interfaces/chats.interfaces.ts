@@ -4,6 +4,7 @@ export interface IChat {
   phoneNumber: string;
   isGood: boolean;
   criterion: string[];
+  numberOfUnread: number;
 }
 
 export interface IGetChatsAPIResponse {

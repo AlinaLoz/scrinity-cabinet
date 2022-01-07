@@ -4,6 +4,7 @@ import styles from '@containers/admin/messages/list/style.module.scss';
 import React from 'react';
 import { useChats } from '@containers/admin/messages/hooks';
 import { useChatIdFromRoute } from '@containers/admin/messages/content/hooks';
+import { NumberOfUnread } from '@components/unread-message';
 
 interface IPageProps {
   index: number;
@@ -23,6 +24,7 @@ export const Page: React.FC<IPageProps> = ({ index }) => {
         >
           <p className={styles.phoneNumber}>{item.phoneNumber || 'Анонимно'}</p>
           <p className={styles.message}>{item.message}</p>
+          <NumberOfUnread numberOfUnread={item.numberOfUnread} />
         </Touchable>
       ))}
     </>

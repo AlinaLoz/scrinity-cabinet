@@ -43,6 +43,7 @@
 .message {
   @include hidden-ellipsis();
   max-width: 350px;
+  position: relative;
 }
 
 .criterions {

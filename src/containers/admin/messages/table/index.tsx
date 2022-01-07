@@ -7,6 +7,7 @@ import { useChats } from '@containers/admin/messages/hooks';
 import { useChatIdFromRoute } from '@containers/admin/messages/content/hooks';
 import { PageLoader } from '@components/page-loader';
 import { Badge } from 'reactstrap';
+import { NumberOfUnread } from '@components/unread-message';
 import styles from './table.module.scss';
 import { CRITERIONS } from '../../../../assets/criterions';
 
@@ -48,7 +49,10 @@ export const MessageTable: React.FC = () => {
             {/* /> */}
           </td>
           <td onClick={() => onOpenChat(row.id)}>{row.phoneNumber || 'Аноним'}</td>
-          <td className={styles.message} onClick={() => onOpenChat(row.id)}>{row.message}</td>
+          <td className={styles.message} onClick={() => onOpenChat(row.id)}>
+            {row.message}
+            <NumberOfUnread numberOfUnread={row.numberOfUnread} />
+          </td>
           <td className={styles.criterionsBody} onClick={() => onOpenChat(row.id)}>
             {row.criterion.map((criterion) => (
               <Badge
