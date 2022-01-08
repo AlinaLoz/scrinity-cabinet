@@ -11,6 +11,7 @@ interface IListMessagesProps {
   className?: string;
 }
 
+const ITEMS_PER_PAGE = 15;
 export const ListMessages: React.FC<IListMessagesProps> = ({
   className,
 }) => {
@@ -20,7 +21,7 @@ export const ListMessages: React.FC<IListMessagesProps> = ({
   const fetchMoreData = useCallback(() => {
     setCnt((prev) => prev + 1);
   }, []);
-  const countPage = Math.round(total / 15);
+  const countPage = Math.round(total / ITEMS_PER_PAGE);
   const pages = [];
   for (let i = 0; i < cnt; i += 1) {
     pages.push(<Page index={i} key={i} />);
@@ -29,7 +30,7 @@ export const ListMessages: React.FC<IListMessagesProps> = ({
   return (
     <div id="scrollableDiv" className={cn(className, styles.scrollableDiv)}>
       <InfiniteScroll
-        dataLength={total}
+        dataLength={cnt * ITEMS_PER_PAGE}
         next={fetchMoreData}
         hasMore={pages.length < countPage}
         loader={<Spinner animation="border" />}

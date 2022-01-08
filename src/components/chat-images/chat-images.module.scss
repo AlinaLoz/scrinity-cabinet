@@ -1,0 +1,20 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.mediaPreview {
+  span {
+    @include montserrat-regular();
+    font-size: 12px;
+    color: $paleSky;
+    position: relative;
+    top: 1px;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    margin-right: 5px;
+  }
+}

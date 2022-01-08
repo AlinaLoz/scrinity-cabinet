@@ -1,3 +1,8 @@
+export interface IFile {
+  filename: string;
+  index: number;
+}
+
 export interface IChat {
   id: number;
   message: string;
@@ -5,6 +10,7 @@ export interface IChat {
   isGood: boolean;
   criterion: string[];
   numberOfUnread: number;
+  files: IFile[]
 }
 
 export interface IGetChatsAPIResponse {
@@ -22,10 +28,7 @@ export interface IChatById {
   sender: ISender | null;
   content: string;
   createdAt: string;
-  files: {
-    filename: string;
-    index: number;
-  }[];
+  files: IFile[];
 }
 
 export interface IGetChatByIdAPIResponse {

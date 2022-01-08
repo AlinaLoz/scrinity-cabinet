@@ -3,9 +3,9 @@
 }
 
 @media (max-width: 800px) {
-.rcw-header {
-//margin-top: 80px;
-}
+  .rcw-header {
+    margin-top: 80px;
+  }
 }
 
 .rcw-message-disable {
@@ -13,19 +13,38 @@
 }
 
 @media screen and (min-width: 800px) {
-.wrapper {
-  background: transparent;
+  .wrapper {
+    background: transparent;
+  }
+
+  .rcw-messages-container {
+    height: calc(100vh - 194px) !important;
+  }
+  .anonymous .rcw-messages-container {
+    height: calc(100vh - 194px + 45px) !important;
+  }
+
+  .rcw-widget-container {
+    height: 10px;
+    bottom: auto;
+    top: auto;
+    right: auto;
+    position: relative;
+  }
 }
 
-.rcw-messages-container {
-  height: calc(100vh - 194px) !important;
+.image-upload, .upload-photo {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.rcw-widget-container {
-  height: 10px;
-  bottom: auto;
-  top: auto;
-  right: auto;
-  position: relative;
+.image-upload img {
+  &:hover {
+    cursor: pointer;
+  }
 }
+
+.rcw-conversation-container .rcw-header {
+  border-radius: 4px 4px 0 0;
 }

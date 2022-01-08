@@ -5,6 +5,9 @@ import React from 'react';
 import { useChats } from '@containers/admin/messages/hooks';
 import { useChatIdFromRoute } from '@containers/admin/messages/content/hooks';
 import { NumberOfUnread } from '@components/unread-message';
+import { UrlHelper } from '@helpers/url.helper';
+import config from '@utils/config';
+import { ChatImages } from '@components/chat-images';
 
 interface IPageProps {
   index: number;
@@ -23,7 +26,9 @@ export const Page: React.FC<IPageProps> = ({ index }) => {
           onClick={() => onOpenChat(item.id)}
         >
           <p className={styles.phoneNumber}>{item.phoneNumber || 'Анонимно'}</p>
-          <p className={styles.message}>{item.message}</p>
+          {item.message ? (<p className={styles.message}>{item.message}</p>) : (
+            <ChatImages files={item.files} />
+          )}
           <NumberOfUnread numberOfUnread={item.numberOfUnread} />
         </Touchable>
       ))}
