@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import { formatPhoneNumberIntl } from 'react-phone-number-input';
+import cn from 'classnames';
 
 import { PageLoader } from '@components/page-loader';
 import { useMe } from '@hooks/use-me.hooks';
@@ -30,6 +31,7 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
 
   const [isLoadingChat, messages, messagesById] = useChat(chatId || 0);
   const formatSender = formatPhoneNumberIntl(messages[0]?.sender?.phoneNumber || '') || 'Аноним';
+  const isAnonymous = !messages[0]?.sender?.phoneNumber;
   useToggleDisabledChat(messages);
 
   const goBack = useCallback(() => {
@@ -44,7 +46,7 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
 
   return (
     <ChatWidget
-      className={className}
+      className={cn(isAnonymous ? 'anonymous' : '')}
       userId={manager.userId}
       chatId={chatId || undefined}
       sendMessageAPI={sendMessageAPI}
