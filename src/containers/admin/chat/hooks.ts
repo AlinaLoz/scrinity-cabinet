@@ -38,8 +38,7 @@ export const useChat = (feedbackId: number): [boolean, IChatById[], TMessagesByD
     if (!data?.items) {
       return {};
     }
-    widget.dropMessages();
-    alert('das');
+    widget?.dropMessages();
     return data.items.reduce<TMessagesByDay>((acc, message) => {
       const day = startOfDay(new Date(message.createdAt)).toISOString();
       if (!acc[day]) {
