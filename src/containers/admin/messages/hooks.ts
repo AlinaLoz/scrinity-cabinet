@@ -64,7 +64,7 @@ export const useChats = (passSkip?: number, passLimit?: number): TUseChats => {
         isAnonymously: sender === SENDER_FILTER.anonymously,
       }),
     }),
-    { refreshWhenHidden: false },
+    { refreshWhenHidden: false, revalidateIfStale: false },
   );
 
   const isLoading = !error && !data;
