@@ -50,7 +50,7 @@
     "reactstrap": "^9.0.0",
     "recharts": "^2.1.8",
     "sass": "^1.42.1",
-    "scrinity-chat": "^1.0.2",
+    "scrinity-chat": "^1.0.3",
     "swr": "^1.0.1"
   },
   "license": "MIT",
