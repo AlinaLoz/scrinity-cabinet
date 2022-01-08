@@ -24,6 +24,7 @@ export const useChat = (feedbackId: number): [boolean, IChatById[], TMessagesByD
   const { data, error } = useSWR(
     CHAT_BY_ID_API(feedbackId),
     () => getChatByIdAPI(feedbackId),
+    { revalidateIfStale: false },
   );
 
   const isLoading = !error && !data;
