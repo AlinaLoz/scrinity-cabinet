@@ -20,6 +20,12 @@ export const getWidget = async (): Promise<typeof widget> => {
   return widget;
 };
 
+(async () => {
+  if (typeof window !== 'undefined') {
+    widget = await getWidget();
+  }
+})();
+
 export const useChat = (feedbackId: number): [boolean, IChatById[], TMessagesByDay] => {
   const { data, error } = useSWR(
     CHAT_BY_ID_API(feedbackId),
@@ -32,6 +38,8 @@ export const useChat = (feedbackId: number): [boolean, IChatById[], TMessagesByD
     if (!data?.items) {
       return {};
     }
+    widget.dropMessages();
+    alert('das');
     return data.items.reduce<TMessagesByDay>((acc, message) => {
       const day = startOfDay(new Date(message.createdAt)).toISOString();
       if (!acc[day]) {
