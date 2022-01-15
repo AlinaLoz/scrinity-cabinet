@@ -3,12 +3,13 @@ import {
   CHAT_BY_ID_API, CHATS_API, CHATS_MESSAGE_API, SEND_CHATS_IMAGES_API,
 } from '@constants/api.constants';
 import {
+  CHAT_AUTH_TYPE,
   IGetChatByIdAPIResponse, IGetChatsAPIResponse,
   ISendFeedbackImagesRequest, ISendMessageRequest,
 } from '@interfaces/chats.interfaces';
 import { ISendFeedbackImagesResponse } from '@interfaces/companies.interfaces';
 
-export function getChatsAPI(data: { skip: number, limit: number, isAnonymously?: boolean }): Promise<IGetChatsAPIResponse> {
+export function getChatsAPI(data: { skip: number, limit: number, authType?: CHAT_AUTH_TYPE }): Promise<IGetChatsAPIResponse> {
   return get(CHATS_API, data);
 }
 

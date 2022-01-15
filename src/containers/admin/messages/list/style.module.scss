@@ -40,6 +40,7 @@
 }
 
 .message {
+  max-width: 200px;
   color: $paleSky;
   font-size: 13px;
   line-height: 16px;
@@ -48,3 +49,10 @@
   @include hidden-ellipsis();
 }
 
+.time {
+  font-size: 10px;
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  color: $paleSky;
+}

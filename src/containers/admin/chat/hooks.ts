@@ -57,7 +57,7 @@ export const useChat = (feedbackId: number): [boolean, IChatById[], TMessagesByD
 };
 
 export const useToggleDisabledChat = (messages: IChatById[]): boolean | null => {
-  const isAnonymous = messages.length ? !messages[0]?.sender?.phoneNumber : null;
+  const isAnonymous = messages.length ? !messages[0]?.sender : null;
 
   useEffect(() => {
     if (!messages.length) {

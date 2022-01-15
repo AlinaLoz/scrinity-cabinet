@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { CHATS_API } from '@constants/api.constants';
 import { getChatsAPI } from '@api/chats.service';
-import { IChat } from '@interfaces/chats.interfaces';
+import { CHAT_AUTH_TYPE, IChat } from '@interfaces/chats.interfaces';
 import { CHATS_LIMIT } from '@constants/chats.constants';
 import { SENDER_FILTER } from '@constants/message.constants';
 
@@ -61,7 +61,7 @@ export const useChats = (passSkip?: number, passLimit?: number): TUseChats => {
       skip: passSkip || skip,
       limit: passLimit || limit,
       ...(sender !== SENDER_FILTER.all && {
-        isAnonymously: sender === SENDER_FILTER.anonymously,
+        authType: sender as CHAT_AUTH_TYPE,
       }),
     }),
     { refreshWhenHidden: false, revalidateIfStale: false },

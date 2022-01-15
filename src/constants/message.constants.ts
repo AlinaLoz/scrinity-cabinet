@@ -9,13 +9,15 @@ export const MESSAGE_MAP = {
 export enum SENDER_FILTER {
   all= 'all',
   anonymously = 'anonymously',
-  nonAnonymously = 'nonAnonymously',
+  byNumber = 'byNumber',
+  byEmail = 'byEmail',
 }
 
 export const SENDER_FILTER_OPTIONS = [
   { key: SENDER_FILTER.all, value: 'Все' },
-  { key: SENDER_FILTER.anonymously, value: 'Без номера' },
-  { key: SENDER_FILTER.nonAnonymously, value: 'С номером' },
+  { key: SENDER_FILTER.anonymously, value: 'Анонимно' },
+  { key: SENDER_FILTER.byNumber, value: 'По номеру' },
+  { key: SENDER_FILTER.byEmail, value: 'По email' },
 ];
 
 export const PAGE_SIZE = 20;
