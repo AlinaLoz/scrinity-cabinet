@@ -16,7 +16,6 @@ import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import { SignOutIcon } from '@components/icons/sign-out';
 import { useSignOut } from '@components/modal/sign-in.modal/sign-in.hooks';
 import { useMe } from '@hooks/use-me.hooks';
-import { SignOutIcon2 } from '@components/icons/sign-out-2';
 import styles from './sidebar.module.scss';
 
 interface ISidebarProps {
@@ -84,7 +83,6 @@ const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) =>
         <Menu>
           <MenuItem onClick={signOut} className={styles.menuItem}>
             <SignOutIcon />
-            {/* <SignOutIcon2 /> */}
             <p>Выйти</p>
           </MenuItem>
         </Menu>
