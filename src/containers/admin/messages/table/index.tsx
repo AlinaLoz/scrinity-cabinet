@@ -9,6 +9,7 @@ import { PageLoader } from '@components/page-loader';
 import { Badge } from 'reactstrap';
 import { NumberOfUnread } from '@components/unread-message';
 import { ChatImages } from '@components/chat-images';
+import { format } from 'date-fns';
 import styles from './table.module.scss';
 import { CRITERIONS } from '../../../../assets/criterions';
 
@@ -33,10 +34,11 @@ export const MessageTable: React.FC = () => {
             {/* /> */}
           </th>
           <th className={styles.name}>
-            Телефон
+            Телефон/email
           </th>
           <th className={styles.message}>Сообщение</th>
           <th className={styles.criterions}>Криетерии</th>
+          <th className={styles.time}>Время</th>
           <th> </th>
         </tr>
       )}
@@ -49,7 +51,7 @@ export const MessageTable: React.FC = () => {
             {/*  onChange={() => onChangeCheckbox(row.id)} */}
             {/* /> */}
           </td>
-          <td onClick={() => onOpenChat(row.id)}>{row.phoneNumber || 'Аноним'}</td>
+          <td onClick={() => onOpenChat(row.id)}>{row.sender || 'Аноним'}</td>
           <td className={styles.message} onClick={() => onOpenChat(row.id)}>
             {row.message ? (<p className={styles.message}>{row.message}</p>) : (
               <ChatImages files={row.files} />
@@ -67,6 +69,7 @@ export const MessageTable: React.FC = () => {
             ))}
           </td>
           {/* <td className={styles.trashRaw}><TrashIcon /></td> */}
+          <td className={styles.time}>{format(new Date(row.createdAt), 'yyyy-MM-dd HH:mm')}</td>
         </tr>
       ))}
     />

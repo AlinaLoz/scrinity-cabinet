@@ -6,11 +6,12 @@ export interface IFile {
 export interface IChat {
   id: number;
   message: string;
-  phoneNumber: string;
+  sender: string;
   isGood: boolean;
   criterion: string[];
   numberOfUnread: number;
   files: IFile[]
+  createdAt: string;
 }
 
 export interface IGetChatsAPIResponse {
@@ -21,6 +22,7 @@ export interface IGetChatsAPIResponse {
 export interface ISender {
   id: number;
   phoneNumber: string;
+  email: string;
 }
 
 export interface IChatById {
@@ -44,4 +46,10 @@ export interface ISendMessageRequest {
 export type ISendFeedbackImagesRequest = FormData;
 export interface ISendFeedbackImagesResponse {
   imagesKeys: string[];
+}
+
+export enum CHAT_AUTH_TYPE {
+  anonymously = 'anonymously',
+  byNumber = 'byNumber',
+  byEmail = 'byEmail',
 }

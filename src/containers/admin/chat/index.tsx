@@ -30,8 +30,12 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
   const [, manager] = useMe();
 
   const [isLoadingChat, messages, messagesById] = useChat(chatId || 0);
-  const formatSender = formatPhoneNumberIntl(messages[0]?.sender?.phoneNumber || '') || 'Аноним';
-  const isAnonymous = !messages[0]?.sender?.phoneNumber;
+  const isAnonymous = !messages[0]?.sender;
+
+  const formatSender = formatPhoneNumberIntl(messages[0]?.sender?.phoneNumber || '')
+    || messages[0]?.sender?.email || 'Аноним';
+
+  console.log('isAnonymous', isAnonymous);
   useToggleDisabledChat(messages);
 
   const goBack = useCallback(() => {
@@ -46,7 +50,7 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
 
   return (
     <ChatWidget
-      className={cn(isAnonymous ? 'anonymous' : '')}
+      // className={cn(isAnonymous ? 'anonymous' : '')}
       userId={manager.userId}
       chatId={chatId || undefined}
       sendMessageAPI={sendMessageAPI}
