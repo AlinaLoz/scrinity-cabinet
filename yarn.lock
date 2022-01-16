@@ -3936,10 +3936,10 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
-scrinity-chat@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/scrinity-chat/-/scrinity-chat-1.0.3.tgz#8e8138d83a11f6228ef876fe8a9c3c022af78b1a"
-  integrity sha512-MwQyh7jCAhFhqxD4fbSdFDmlRgtI+Q1ApGwaCHHJ65dU8TzJgQyX4tBxW0Y6+2GRCqkHc8VcFpKg88nPzkF2rw==
+scrinity-chat@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/scrinity-chat/-/scrinity-chat-1.0.4.tgz#2ffe3df4a30874332d61ab968b6e3fa3d38d073d"
+  integrity sha512-FKc79hKI3IlTNzkxHZAcBQa0GadLUioOvOkIfFTrp3YRYbUO1cV8TXgKOAAijFwO1gXQBsUoOtZeJLqNh/FoNQ==
   dependencies:
     classnames "^2.2.6"
     date-fns "^2.27.0"
