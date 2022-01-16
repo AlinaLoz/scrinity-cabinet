@@ -21,7 +21,10 @@ export const Page: React.FC<IPageProps> = ({ index }) => {
     <>
       {items.map((item) => (
         <Touchable
-          className={cn(styles.chat, { [styles.active]: chatId === item.id })}
+          className={cn(
+            styles.chat, { [styles.active]: chatId === item.id },
+            { [styles.unred]: !!item.numberOfUnread },
+          )}
           key={item.id}
           onClick={() => onOpenChat(item.id)}
         >
