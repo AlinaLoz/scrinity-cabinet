@@ -43,7 +43,7 @@ export const MessageTable: React.FC = () => {
         </tr>
       )}
       tbody={items.map((row) => (
-        <tr key={row.id}>
+        <tr key={row.id} className={cn({ [styles.unred]: !!row.numberOfUnread })}>
           <td className={styles.checkboxRaw}>
             {/* <Checkbox */}
             {/*  id={row.id} */}

@@ -3,16 +3,16 @@
 
 .numberOfUnread {
   position: absolute;
-  top: 17px;
+  top: 15px;
   right: 5%;
   min-width: 16px;
   height: 16px;
-  background: #C4C9CC;
+  background: $white;
   border-radius: 8px;
-  color: #fff;
-  font-size: 12px;
+  color: $codGray;
+  font-size: 10px;
   line-height: 16px;
   text-align: center;
   flex-shrink: 0;
-  @include montserrat-regular();
+  @include montserrat-medium();
 }

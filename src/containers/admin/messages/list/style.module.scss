@@ -29,7 +29,11 @@
 }
 
 .active {
-  border-left: 2px solid $ming;
+  border-left: 2px solid #7BADBC;
+}
+
+.unred {
+  background: rgb(123, 173, 188, 50%);
 }
 
 .phoneNumber {
