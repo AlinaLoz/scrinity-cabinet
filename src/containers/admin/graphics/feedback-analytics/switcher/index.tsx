@@ -13,8 +13,9 @@ export const Switcher: React.FC<IProps> = ({ onChange, step }) => (
   <div className={styles.switcher}>
     {[
       { key: ANALYTIC_STEP.DAY, value: 'День' },
+      { key: ANALYTIC_STEP.WEEK, value: 'Неделя' },
       { key: ANALYTIC_STEP.MONTH, value: 'Месяц' },
-      { key: ANALYTIC_STEP.YEAR, value: 'Год' },
+      // { key: ANALYTIC_STEP.YEAR, value: 'Год' },
     ].map((item) => (
       <p
         key={item.key}
