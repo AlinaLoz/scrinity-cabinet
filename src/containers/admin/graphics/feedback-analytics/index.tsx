@@ -24,6 +24,7 @@ const CustomizedAxisTick: React.FC<{
     <g transform={`translate(${x},${y})`} style={{}}>
       <text x={0} y={0} dy={16} textAnchor="end" fill="#666">
         {step !== ANALYTIC_STEP.DAY ? null : format(new Date(payload.value), 'd MMM', { locale: ru }).replace(/\.$/, '')}
+        {step !== ANALYTIC_STEP.WEEK ? null : format(new Date(payload.value), 'd MMM', { locale: ru }).replace(/\.$/, '')}
         {step !== ANALYTIC_STEP.MONTH ? null : format(new Date(payload.value), 'MMM', { locale: ru })}
         {step !== ANALYTIC_STEP.YEAR ? null : format(new Date(payload.value), 'yyyy', { locale: ru })}
       </text>
