@@ -19,9 +19,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run:
-          npm i
-          npm run build --if-present
+      - run: npm i
+      - run: npm run build
 
   deploy:
     runs-on: self-hosted
@@ -36,10 +35,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run:
-          npm i
-          npm run build --if-present
-          pm2 stop 2
-          pm2 start 2
-          pm2 save
+        - run: npm i
+        - run: npm run build
+        - run: pm2 stop 2
+        - run: pm2 start 2
+        - run: pm2 save
 
