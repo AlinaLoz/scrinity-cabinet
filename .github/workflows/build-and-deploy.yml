@@ -37,7 +37,5 @@ jobs:
         cache: 'npm'
         - run: npm i
         - run: npm run build
-        - run: pm2 stop 2
-        - run: pm2 start 2
-        - run: pm2 save
+        - run: /node_modules/pm2/bin/pm2 restart all
 
