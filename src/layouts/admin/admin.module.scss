@@ -16,6 +16,8 @@
 }
 
 .main {
+  height: 100vh;
+  overflow-y: scroll;
   width: calc(100vw - 270px);
   background: $athens;
   display: flex;

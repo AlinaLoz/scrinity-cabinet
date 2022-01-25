@@ -39,7 +39,7 @@ export const MessageTable: React.FC = () => {
           <th className={styles.message}>Сообщение</th>
           <th className={styles.criterions}>Криетерии</th>
           <th className={styles.time}>Время</th>
-          <th> </th>
+          {/* <th> </th> */}
         </tr>
       )}
       tbody={items.map((row) => (
