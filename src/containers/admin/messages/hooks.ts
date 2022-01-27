@@ -6,6 +6,7 @@ import { getChatsAPI } from '@api/chats.service';
 import { CHAT_AUTH_TYPE, IChat } from '@interfaces/chats.interfaces';
 import { CHATS_LIMIT } from '@constants/chats.constants';
 import { SENDER_FILTER } from '@constants/message.constants';
+import { useChatIdFromRoute } from '@containers/admin/messages/content/hooks';
 
 type TUseFilter = {
   search: string,
@@ -64,7 +65,7 @@ export const useChats = (passSkip?: number, passLimit?: number): TUseChats => {
         authType: sender as CHAT_AUTH_TYPE,
       }),
     }),
-    { refreshWhenHidden: false, revalidateIfStale: false },
+    { refreshWhenHidden: false, revalidateIfStale: false, refreshInterval: 3 },
   );
 
   const isLoading = !error && !data;
