@@ -32,6 +32,7 @@ export const Chat: React.FC<IChatProps> = ({ className }) => {
   const [isLoadingChat, messages, messagesById] = useChat(chatId || 0);
   const isAnonymous = !messages[0]?.sender;
 
+  // @ts-ignore
   const formatSender = formatPhoneNumberIntl(messages[0]?.sender?.phoneNumber || '')
     || messages[0]?.sender?.email || 'Аноним';
 
