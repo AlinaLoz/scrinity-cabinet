@@ -43,54 +43,61 @@ export const CriterionsAnalytics: React.FC<IProps> = ({ step, fromDate, toDate }
     <div className={cn(styles.criterionsWrapper, 'piecharts')}>
       {isLoading ? <Loader /> : (
         analytics.map((analytic) => (
-          <>
-            <p className={styles.legendTitleBig}>{analytic.isGood ? 'Положительные' : 'Отрицательные'}</p>
-            <PieChart
-              key={`criterions${analytic.isGood ? 'good' : 'bad'}`}
-              width={800}
-              height={340}
-            >
-              <text
-                x={isMobile ? '50%' : '25%'}
-                y={isMobile ? '-3%' : '45%'}
-                textAnchor="middle"
-                className={styles.legendCenterLabel}
-              >
-                Общее
-              </text>
-              <text
-                x={isMobile ? '50%' : '25%'}
-                y={isMobile ? '10%' : '60%'}
-                textAnchor="middle"
-                className={styles.legendCenterLabelBold}
-              >
-                {analytic.data.reduce((acc, { value }) => acc + value, 0)} шт
-              </text>
-              <Pie
-                width="200%"
-                cx={isMobile ? '50%' : '25%'}
-                cy={isMobile ? '0' : '50%'}
-                data={analytic?.data}
-                innerRadius={105}
-                outerRadius={120}
-                fill="#8884d8"
-                dataKey="value"
-                cornerRadius={20}
-                paddingAngle={5}
-              >
-                {analytic?.data.map((entry, idx) => (
-                  <Cell
-                    key={entry.criterionKey}
-                    fill={COLORS_GOOD[idx % COLORS_GOOD.length]}
-                  />
-                ))}
-              </Pie>
-              {// @ts-ignore
-                // eslint-disable-next-line max-len
-                <Legend layout="vertical" verticalAlign="middle" content={(props) => <CustomLegend {...props} title={analytic.isGood ? 'Положительные' : 'Отрицательные'} />} />
-              }
-            </PieChart>
-          </>
+          !analytic.data.length ? (
+            <div className={cn(styles.legendTitle, styles.noData)}>
+              {analytic.isGood ? 'Положительных отзывов нет' : 'Отрицательных отзывов нет'}
+            </div>
+          )
+            : (
+              <>
+                <p className={styles.legendTitleBig}>{analytic.isGood ? 'Положительные' : 'Отрицательные'}</p>
+                <PieChart
+                  key={`criterions${analytic.isGood ? 'good' : 'bad'}`}
+                  width={800}
+                  height={340}
+                >
+                  <text
+                    x={isMobile ? '50%' : '25%'}
+                    y={isMobile ? '-3%' : '45%'}
+                    textAnchor="middle"
+                    className={styles.legendCenterLabel}
+                  >
+                    Общее
+                  </text>
+                  <text
+                    x={isMobile ? '50%' : '25%'}
+                    y={isMobile ? '10%' : '60%'}
+                    textAnchor="middle"
+                    className={styles.legendCenterLabelBold}
+                  >
+                    {analytic.data.reduce((acc, { value }) => acc + value, 0)} шт
+                  </text>
+                  <Pie
+                    width="200%"
+                    cx={isMobile ? '50%' : '25%'}
+                    cy={isMobile ? '0' : '50%'}
+                    data={analytic?.data}
+                    innerRadius={105}
+                    outerRadius={120}
+                    fill="#8884d8"
+                    dataKey="value"
+                    cornerRadius={20}
+                    paddingAngle={5}
+                  >
+                    {analytic?.data.map((entry, idx) => (
+                      <Cell
+                        key={entry.criterionKey}
+                        fill={COLORS_GOOD[idx % COLORS_GOOD.length]}
+                      />
+                    ))}
+                  </Pie>
+                  {// @ts-ignore
+                    // eslint-disable-next-line max-len
+                    <Legend layout="vertical" verticalAlign="middle" content={(props) => <CustomLegend {...props} title={analytic.isGood ? 'Положительные' : 'Отрицательные'} />} />
+                  }
+                </PieChart>
+              </>
+            )
         ))
       )}
     </div>
