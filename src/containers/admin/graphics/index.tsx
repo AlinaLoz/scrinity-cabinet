@@ -28,6 +28,7 @@ export const AdminGraphics: React.FC = () => {
   const [step, setStep] = useState(ANALYTIC_STEP.DAY);
   const [fromDate, setFromDate] = useState(FROM_TO_DATES[step].start);
   const [toDate, setToDate] = useState(FROM_TO_DATES[step].end);
+
   useEffect(() => {
     setFromDate(FROM_TO_DATES[step].start);
     setToDate(FROM_TO_DATES[step].end);

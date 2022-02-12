@@ -44,13 +44,6 @@ export const FeedbackAnalytics: React.FC<IProps> = ({
   const [isLoading, analytics] = useFeedbackAnalytics({ step, toDate, fromDate });
   const [preparedGoodLineData] = prepareChartsData(analytics);
 
-  if (!preparedGoodLineData.length) {
-    return (
-      <div className={cn(styles.title, styles.noData)}>
-        Нет данных для статистики
-      </div>
-    );
-  }
   return (
     <div className={cn(styles.feedbackAnalytics, 'feedback-analytics')}>
       <p className={styles.title}>Статистика отзывов</p>

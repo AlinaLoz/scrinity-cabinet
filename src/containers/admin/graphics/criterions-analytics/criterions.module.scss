@@ -94,11 +94,18 @@
 }
 
 .noData {
-  width: 840px;
+  background: $white;
+  height: 340px;
+  width: 100%;
+  margin-right: 38px;
   display: flex;
   justify-content: center;
   align-items: center;
   @media (max-width: $md) {
     width: 100%;
+  }
+
+  &:nth-child(2) {
+    margin-right: 0;
   }
 }

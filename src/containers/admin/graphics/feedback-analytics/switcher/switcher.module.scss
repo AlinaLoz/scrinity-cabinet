@@ -20,6 +20,7 @@
 
     &.active {
       color: $ming;
+      @include montserrat-bold();
     }
   }
 }
