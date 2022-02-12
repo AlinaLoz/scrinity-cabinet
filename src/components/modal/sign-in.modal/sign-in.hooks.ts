@@ -1,11 +1,13 @@
 import { getFirstResponseError } from '@helpers/message.helper';
 import {
-  useCallback, useState,
+  useCallback, useContext, useState,
 } from 'react';
 import { mutate } from 'swr';
 
 import { signInAPI, signOutAPI } from '@api/auth.service';
 import { ME_API } from '@constants/api.constants';
+import { ModalContext } from '@contexts/modal.context';
+import { MODAL } from '@constants/modal.constants';
 
 type TUseRequestNewCodeReturn = [
   boolean,
@@ -39,13 +41,19 @@ export const useSignIn = (): TUseRequestNewCodeReturn => {
   return [isLoading, error, resetError, cb];
 };
 
-export const useSignOut = (): [() => Promise<void>] => {
-  const cb = useCallback(async () => {
-    try {
-      await signOutAPI();
-    } finally {
-      mutate(ME_API);
-    }
+export const useSignOut = (): [() => void] => {
+  const { setData } = useContext(ModalContext);
+
+  const cb = useCallback(() => {
+    const modalCb = async () => {
+      try {
+        await signOutAPI();
+      } finally {
+        await mutate(ME_API);
+      }
+    };
+    const text = 'Вы действительно хотите выйти?';
+    setData(MODAL.CONFIRM, { text, cb: modalCb });
   }, []);
   return [cb];
 };

@@ -1,0 +1,25 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/variables.scss';
+
+.modal {
+  margin: auto;
+  border-radius: 20px;
+  background: $white;
+  padding: 25px 25px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  @include montserrat-bold();
+}
+
+.button {
+  height: 45px;
+  width: 150px;
+}

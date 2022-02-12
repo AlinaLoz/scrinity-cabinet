@@ -10,6 +10,10 @@ export type TModalData<T extends MODAL> = {
     onSendFeedback: () => Promise<void>;
   } | null,
   [MODAL.NONE]: null,
+  [MODAL.CONFIRM]: {
+    text: string,
+    cb: () => void,
+  },
 }[T];
 
 export type TContext<T extends MODAL> = {
