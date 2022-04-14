@@ -8,9 +8,9 @@ import {
   Cell, Legend, Pie, PieChart,
 } from 'recharts';
 import Loader from '@components/loader';
+import { userCriterions } from '@hooks/use-criterions';
 import { useCriterionsAnalytics } from '../hooks';
 import styles from './criterions.module.scss';
-import { CRITERIONS } from '../../../../assets/criterions';
 
 interface IProps {
   step: ANALYTIC_STEP;
@@ -21,20 +21,24 @@ const COLORS_GOOD = ['#95EBEB', '#FF8000', '#D4A276', '#033270', '#DFDC27', '#01
 // const COLORS_BAD = ['#006DAB', '#D83400', '#B27B4A', '#3E4A59', '#AEA443', '#728C92'];
 type TPayload = { payload: { fill: string, value: string, criterionKey: string } }[];
 
-const CustomLegend: React.FC<{ title: string, payload: TPayload }> = ({ title, payload }) => (
-  <div className={styles.legend}>
-    <p className={styles.legendTitle}>{title}</p>
-    <ul>
-      {payload.map((entry) => (
-        <p className={styles.legendlabel} key={entry.payload.criterionKey}>
-          <span className={styles.icon} style={{ backgroundColor: entry.payload.fill }} />
-          <span>{CRITERIONS[entry.payload.criterionKey]}</span>
-          <span>{entry.payload.value}</span>
-        </p>
-      ))}
-    </ul>
-  </div>
-);
+const CustomLegend: React.FC<{ title: string, payload: TPayload }> = ({ title, payload }) => {
+  const [, criterions] = userCriterions();
+
+  return (
+    <div className={styles.legend}>
+      <p className={styles.legendTitle}>{title}</p>
+      <ul>
+        {payload.map((entry) => (
+          <p className={styles.legendlabel} key={entry.payload.criterionKey}>
+            <span className={styles.icon} style={{ backgroundColor: entry.payload.fill }} />
+            <span>{criterions[entry.payload.criterionKey]}</span>
+            <span>{entry.payload.value}</span>
+          </p>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export const CriterionsAnalytics: React.FC<IProps> = ({ step, fromDate, toDate }) => {
   const [isLoading, analytics] = useCriterionsAnalytics({ step, toDate, fromDate });

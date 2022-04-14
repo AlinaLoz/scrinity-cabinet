@@ -10,12 +10,13 @@ import { Badge } from 'reactstrap';
 import { NumberOfUnread } from '@components/unread-message';
 import { ChatImages } from '@components/chat-images';
 import { format } from 'date-fns';
+import { userCriterions } from '@hooks/use-criterions';
 import styles from './table.module.scss';
-import { CRITERIONS } from '../../../../assets/criterions';
 
 export const MessageTable: React.FC = () => {
   const [isLoading, total, items] = useChats();
   const [, onOpenChat] = useChatIdFromRoute();
+  const [, criterions] = userCriterions();
   // const itemsIds = useMemo(() => items.map(({ id }) => id), [items]);
   // const [checkedCheckboxes, onChangeCheckbox, onSelectAllCheckboxes] = useCheckboxes(itemsIds);
 
@@ -64,7 +65,7 @@ export const MessageTable: React.FC = () => {
                 pill
                 key={criterion}
                 className={cn(row.isGood ? 'bg-success' : 'bg-danger', styles.badge)}
-              >{CRITERIONS[criterion]}
+              >{criterions[criterion]}
               </Badge>
             ))}
           </td>
