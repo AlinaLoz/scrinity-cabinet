@@ -45,8 +45,12 @@
     font-size: 12px;
     padding: 0;
     color: $paleSky;
+
     a {
       padding: 2px 5px;
+      &:first-letter {
+        text-transform: uppercase;
+      }
     }
     a:active {
       color: $paleSky;
@@ -59,6 +63,11 @@
     border: none !important;
     color: $ming !important;
     box-shadow: none !important;
+    @include montserrat-medium();
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
 
     &:after {
       display: inline-block !important;

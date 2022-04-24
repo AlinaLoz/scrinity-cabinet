@@ -17,3 +17,5 @@ export const ANALYTICS_FEEDBACK_API = `${ANALYTICS_API}/feedback`;
 export const ANALYTICS_CRITERIONS_API = `${ANALYTICS_API}/criterions`;
 
 export const CRITERIONS_API = '/config/criterions';
+
+export const FEEDBACKS_API = '/feedbacks';
