@@ -2,7 +2,8 @@ import React from 'react';
 
 import Admin from '@layouts/admin';
 import { SENDER_FILTER_OPTIONS } from '@constants/message.constants';
-import { Filter } from './filter';
+import { Filter } from '@components/filter';
+
 import styles from './messages.module.scss';
 import { useFilter } from './hooks';
 import { MessagesContent } from './content';

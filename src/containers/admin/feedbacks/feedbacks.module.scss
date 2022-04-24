@@ -1,0 +1,25 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.main {
+  width: calc(100% - 84px);
+  height: 100%;
+  margin: 64px 42px;
+}
+
+.feedbacks {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & > div {
+    flex: calc(50% - 15px); /* or - flex: 0 50% - or - flex-basis: 50% - */
+    margin-bottom: 30px;
+
+    &:nth-child(odd) {
+      margin-right: 30px;
+    }
+  }
+}
