@@ -16,6 +16,8 @@ import { COMPANY_ROUTE, ROUTES } from '@constants/routes.contstants';
 import { SignOutIcon } from '@components/icons/sign-out';
 import { useSignOut } from '@components/modal/sign-in.modal/sign-in.hooks';
 import { useMe } from '@hooks/use-me.hooks';
+import { OtherServiceIcon } from '@components/icons/other-service';
+
 import styles from './sidebar.module.scss';
 
 interface ISidebarProps {
@@ -30,6 +32,7 @@ const MENU_ITEMS: {
 }[] = [
   { key: ROUTES.MESSAGES, name: 'Сообщения', icon: MessageIcon },
   { key: ROUTES.GRAPHICS, name: 'Графики', icon: GraphicsIcon },
+  { key: ROUTES.FEEDBACKS, name: 'Другие сервисы', icon: OtherServiceIcon },
 ];
 
 const Sidebar: React.FC<ISidebarProps> = ({ handleToggleSidebar, isToggled }) => {

@@ -1,0 +1,44 @@
+@import 'public/styles/typography.scss';
+@import 'public/styles/ui-elements.scss';
+@import 'public/styles/variables';
+
+.main {
+  width: calc(100% - 84px);
+  height: 100%;
+  margin: 64px 42px;
+}
+
+.feedbacks {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & > div {
+    flex: calc(50% - 15px); /* or - flex: 0 50% - or - flex-basis: 50% - */
+    margin-bottom: 30px;
+
+    &:nth-child(odd) {
+      margin-right: 30px;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .main {
+    margin: 64px 19px;
+    width: auto;
+  }
+
+  .feedbacks {
+    & > div {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+
+      &:nth-child(odd) {
+        margin-right: 0px;
+      }
+    }
+  }
+}

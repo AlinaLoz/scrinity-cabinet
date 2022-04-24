@@ -5,6 +5,7 @@ export enum ROUTES {
   MESSAGES = '/messages',
   GRAPHICS = '/graphics',
   CHAT = '/chat',
+  FEEDBACKS = '/feedbacks',
 }
 
 export const COMPANY_ROUTE = (company: string, route: ROUTES): string => `/${company}${route}`;
