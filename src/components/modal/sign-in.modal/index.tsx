@@ -9,6 +9,8 @@ import Button from '@components/button';
 import { useSignIn } from '@components/modal/sign-in.modal/sign-in.hooks';
 import { ROUTES } from '@constants/routes.contstants';
 import { ME_API } from '@constants/api.constants';
+import { VisabilityIcon } from '@components/icons/visibility';
+import { VisabilityOffIcon } from '@components/icons/visibility-off';
 import styles from './sign-in.module.scss';
 
 export const SignInModal: React.FC = () => {
@@ -16,6 +18,7 @@ export const SignInModal: React.FC = () => {
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordShown, setPasswordShown] = useState(false);
   const [isLoading, error, resetError, signIn] = useSignIn();
 
   const onSubmitForm = async (e: FormEvent<HTMLFormElement>) => {
@@ -34,6 +37,10 @@ export const SignInModal: React.FC = () => {
   const onChangePassword = (value: string) => {
     resetError();
     setPassword(value);
+  };
+
+  const onTogglePasswordShown = () => {
+    setPasswordShown(!passwordShown);
   };
 
   return (
@@ -57,13 +64,18 @@ export const SignInModal: React.FC = () => {
           onChangeValue={onChangeLogin}
         />
         <Input
-          type="password"
+          type={passwordShown ? 'text' : 'password'}
           className={styles.password}
           placeholder="Введите пароль"
           label="пароль"
           id="password"
           value={password}
           onChangeValue={onChangePassword}
+          iconComponent={
+            passwordShown
+              ? <VisabilityIcon onClick={onTogglePasswordShown} />
+              : <VisabilityOffIcon onClick={onTogglePasswordShown} />
+          }
         />
         <Button
           disabled={!login.length || !password.length}

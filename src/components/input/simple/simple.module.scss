@@ -9,3 +9,18 @@
 .label {
   @include label();
 }
+
+.icon {
+  padding-right: 40px;
+}
+
+.inputWrapper {
+  position: relative;
+
+  svg {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    cursor: pointer;
+  }
+}
