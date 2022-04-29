@@ -88,7 +88,8 @@
     "@typescript-eslint/no-unsafe-member-access": 0,
     "@typescript-eslint/no-unsafe-assignment": 0,
     "@typescript-eslint/unbound-method": 0,
-    "@typescript-eslint/no-explicit-any": "error"
+    "@typescript-eslint/no-explicit-any": "error",
+    "linebreak-style": 0
   },
   "settings": {
     "import/parsers": {

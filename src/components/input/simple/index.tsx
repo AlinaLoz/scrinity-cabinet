@@ -9,22 +9,27 @@ interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
   value: string;
   onChangeValue: (value: string) => void;
+  iconComponent?: JSX.Element,
 }
 
 export const Input: React.FC<IInputProps> = ({
-  placeholder, id, label,
+  placeholder, id, label, iconComponent,
   value, onChangeValue, className = '', ...props
 }) => (
   <div>
     <label htmlFor={id} className={styles.label}>{label}</label>
-    <input
-      {...props}
-      id={id}
-      maxLength={30}
-      placeholder={placeholder}
-      className={cn(className, styles.input)}
-      value={value}
-      onChange={(e) => onChangeValue(e.target.value)}
-    />
+    <div className={styles.inputWrapper}>
+      <input
+        {...props}
+        id={id}
+        maxLength={30}
+        placeholder={placeholder}
+        className={cn(className, styles.input, { [styles.icon]: !!iconComponent })}
+        value={value}
+        onChange={(e) => onChangeValue(e.target.value)}
+      />
+      {iconComponent}
+    </div>
+
   </div>
 );
